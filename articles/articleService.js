@@ -23,6 +23,17 @@ app.service('articleService', function ($http) {
         })
     }
 
+    // Create New Comment
+    self.createComment = function(comment){
+        var createCommentPath = "http://www.scripttic.com:8000/api/v1/article/" + comment.article + "/comment";
+        $http.defaults.headers.common['Authorization'] = 'Bearer ' + 'a89f338b-bed9-4716-9ccf-a6a1329b90df';
+        $http.post(createCommentPath, comment).then(function(response){
+
+        }, function(error){
+            console.log(error);
+        })
+    }
+
     // Update Article
     self.editArticle = function (article) {
         var editArticlePath = "http://www.scripttic.com:8000/api/v1/article";

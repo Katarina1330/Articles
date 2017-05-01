@@ -59,19 +59,19 @@
                                         </div>
 
                                         <form>
-                                            <div class="body padding center">
+                                            <div class="body padding center" ng-show="article.leaveComment">
                                                 <label for="newCommentTitle" class="form-horizontal"> Title: </label>
-                                                <input type="text" name="newCommentTitle">
+                                                <input type="text" name="newCommentTitle" ng-model="article.newCommentTitle">
                                                
-                                                <textarea rows="4" cols="50" name="newComment"></textarea>
+                                                <textarea rows="4" cols="50" name="newComment" ng-model="article.newComment"></textarea>
                                                
                                             </div>
                                         </form>
 
                                         <div class="">
-                                            <input type="button" value="Leave comment" class="btn btn-primary">
-                                            <input type="button" value="Save">
-                                                <input type="button" value="Cancle">
+                                            <input type="button" value="Leave comment" ng-hide="article.leaveComment" ng-click="toggleLeaveComment(article)" class="btn btn-primary">
+                                            <input type="button" value="Save" ng-show="article.leaveComment" ng-click="toggleLeaveComment(article); createComment(article)">
+                                            <input type="button" value="Cancle" ng-show="article.leaveComment" ng-click="toggleLeaveComment(article)">
                                         </div>
 
                                         <div class="">

@@ -2,18 +2,37 @@ app.controller('articleController', function ($scope, articleService) {
 
     $scope.articleService = articleService;
 
-     $scope.toggleEditArticle = function (article) {
+    $scope.toggleEditArticle = function (article) {
         article.editArticle = !article.editArticle;
     }
 
-    $scope.taggleShowComments = function(article){
+    $scope.taggleShowComments = function (article) {
         article.showComments = !article.showComments;
+    }
+
+    $scope.toggleLeaveComment = function (article) {
+        article.leaveComment = !article.leaveComment;
     }
 
     $scope.articleService.getArticles();
 
-    $scope.getComments = function(article){
+    $scope.getComments = function (article) {
         $scope.articleService.getComments(article);
+    }
+
+    $scope.createComment = function (article) {
+        var comment = {
+            poster: 1,
+            article: article.id,
+            body: article.newComment,
+            title: article.newCommentTitle,
+            datetime: new Date()
+        }
+
+        article.newComment = "";
+        article.newCommentTitle = "";
+
+        $scope.articleService.createComment(comment);
     }
 
     $scope.editArticle = function (article) {
@@ -28,9 +47,9 @@ app.controller('articleController', function ($scope, articleService) {
         $scope.articleService.editArticle(article);
     }
 
-    $scope.deleteArticle = function(article){
+    $scope.deleteArticle = function (article) {
         var r = confirm("Do you want to delete your Article?");
-        if(r == true){
+        if (r == true) {
             $scope.articleService.deleteArticle(article);
         }
     }
