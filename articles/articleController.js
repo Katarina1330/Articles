@@ -20,4 +20,11 @@ app.controller('articleController', function ($scope, articleService) {
         $scope.articleService.editArticle(article);
     }
 
+    $scope.deleteArticle = function(article){
+        var r = confirm("Do you want to delete your Article?");
+        if(r == true){
+            $scope.articleService.deleteArticle(article);
+        }
+    }
+
 })
