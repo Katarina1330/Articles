@@ -8,20 +8,92 @@
     <script src="../app.js"></script>
     <script src="articleController.js"></script>
     <script src="articleService.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.6.0/angular-messages.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/utility.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/components.css">
+
 </head>
 
 <body>
 
     <div ng-app="app">
         <div ng-controller="articleController">
-            <div ng-repeat="article in articleService.articles">
+            <div class="container container-table">
+                <div class="row vertical-center-row">
+                    <div class="text-center col-md-2 col-md-offset-2">
+                        <div ng-repeat="article in articleService.articles">
 
-                
-                {{article.title}}
-                {{article.body}}
-            
-            
-            
+                            <div class="post">
+
+                                <div class="article border-full">
+                                    <div class="title padding center" ng-hide="article.editArticle">
+                                        <span>{{article.title}}</span>
+                                    </div>
+                                    <div class="title padding center" ng-show="article.editArticle">
+                                        <input type="text" ng-model="article.title">
+                                    </div>
+                                    <div class="body padding" ng-hide="article.editArticle">
+                                        <span>{{article.body}}</span>
+                                    </div>
+                                    <div class="body padding" ng-show="article.editArticle">
+                                        <textarea rows="4" cols="50" ng-model="article.body"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="footer border-row padding">
+                                    <form name="leaveCommentForm">
+
+                                        <div class="comments">
+                                            <ul class="list-unstyled">
+                                                <li class="row padding-lr-2x padding-tb border-b">
+                                                    
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <form>
+                                            <div class="body padding center">
+                                                <label for="newCommentTitle" class="form-horizontal"> Title: </label>
+                                                <input type="text" name="newCommentTitle">
+                                               
+                                                <textarea rows="4" cols="50" name="newComment"></textarea>
+                                               
+                                            </div>
+                                        </form>
+
+                                        <div class="">
+                                            <input type="button" value="Leave comment" class="btn btn-primary">
+                                            <input type="button" value="Save">
+                                                <input type="button" value="Cancle">
+                                        </div>
+
+                                        <div class="">
+                                            <input type="button" value="Show comments" class="btn btn-primary">
+                                            <input type="button" value="Hide comments">
+                                        </div>
+                                        <div>
+                                            <input type="button" value="Edit Article" ng-hide="article.editArticle" ng-click="toggleEditArticle(article)" class="btn btn-primary">
+                                            <input type="button" value="Save" ng-show="article.editArticle" ng-click="toggleEditArticle(article); editArticle(article)">
+                                            <input type="button" value="Cancle" ng-show="article.editArticle" ng-click="toggleEditArticle(article)">
+                                        </div>
+                                        <div>
+                                            <input type="button" value="Delete Article" class="btn btn-primary">
+                                        </div>
+                                    </form>
+                                </div>
+                            
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>

@@ -1,0 +1,76 @@
+/* post component */
+.post {
+	    margin: 30px;
+	    padding: 1px 0px 1px 0px;
+	    -webkit-box-shadow: 8px 8px 31px 9px rgba(120, 120, 120, 1);
+	    -moz-box-shadow: 8px 8px 31px 9px rgba(120, 120, 120, 1);
+	    box-shadow: 8px 8px 31px 9px rgba(120, 120, 120, 1);
+	    width: 650px;
+	    min-height: 350px;
+	}
+
+/* styling */
+.post .article .title {
+    font: 600 1.5em/1 'Raleway', sans-serif;
+	color: rgba(0, 0, 0, .5);
+	text-align: center;
+	text-transform: uppercase;
+	word-wrap: break-word;
+}
+.post .article .body {
+    height: 300px;
+    overflow-y: scroll;
+    color: gray;
+	font-style: inherit;
+	text-align: justify;
+	text-justify: inter-word;  
+}
+
+.post .footer {
+  font-family: arial;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.post .footer div {    
+    display: inline-block;  
+}
+
+.post .footer .comments {
+    height: 100px;
+    width: 100%;
+    overflow-y: scroll;
+    background-color: gray;
+}
+
+.post .footer .comments .row {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+  .wrapper {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+		display: table
+	}
+	
+	.content {
+        display: table-cell;
+		text-align: center;
+		vertical-align: middle;
+    }
+
+/*validation */
+	input.ng-invalid.ng-touched {
+        border-color: red;
+} 
+
+	textarea.ng-invalid.ng-touched {
+        border-color: red;
+} 
+
+	form div.ng-active {
+    	color: red;
+}  
