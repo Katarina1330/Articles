@@ -13,6 +13,16 @@ app.service('articleService', function ($http) {
         })
     }
 
+    // Read all Comments
+    self.getComments = function(article){
+        var getCommentsPath = "http://www.scripttic.com:8000/api/v1/article/" + article.id + "/comment";
+        $http.get(getCommentsPath).then(function(response){
+            article.comments = response.data;
+        }, function(error){
+            console.log(error);
+        })
+    }
+
     // Update Article
     self.editArticle = function (article) {
         var editArticlePath = "http://www.scripttic.com:8000/api/v1/article";

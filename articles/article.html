@@ -50,10 +50,10 @@
                                 <div class="footer border-row padding">
                                     <form name="leaveCommentForm">
 
-                                        <div class="comments">
+                                        <div class="comments" ng-show="article.showComments">
                                             <ul class="list-unstyled">
-                                                <li class="row padding-lr-2x padding-tb border-b">
-                                                    
+                                                <li class="row padding-lr-2x padding-tb border-b" ng-repeat="comment in article.comments">
+                                                   <b> {{comment.title}} </b> - {{comment.body}}
                                                 </li>
                                             </ul>
                                         </div>
@@ -75,8 +75,8 @@
                                         </div>
 
                                         <div class="">
-                                            <input type="button" value="Show comments" class="btn btn-primary">
-                                            <input type="button" value="Hide comments">
+                                            <input type="button" value="Show comments" ng-hide="article.showComments" ng-click="taggleShowComments(article); getComments(article)" class="btn btn-primary">
+                                            <input type="button" value="Hide comments" ng-show="article.showComments" ng-click="taggleShowComments(article)">
                                         </div>
                                         <div>
                                             <input type="button" value="Edit Article" ng-hide="article.editArticle" ng-click="toggleEditArticle(article)" class="btn btn-primary">

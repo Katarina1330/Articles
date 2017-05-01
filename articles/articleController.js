@@ -2,10 +2,18 @@ app.controller('articleController', function ($scope, articleService) {
 
     $scope.articleService = articleService;
 
+     $scope.toggleEditArticle = function (article) {
+        article.editArticle = !article.editArticle;
+    }
+
+    $scope.taggleShowComments = function(article){
+        article.showComments = !article.showComments;
+    }
+
     $scope.articleService.getArticles();
 
-    $scope.toggleEditArticle = function (article) {
-        article.editArticle = !article.editArticle;
+    $scope.getComments = function(article){
+        $scope.articleService.getComments(article);
     }
 
     $scope.editArticle = function (article) {
