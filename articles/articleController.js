@@ -54,4 +54,16 @@ app.controller('articleController', function ($scope, articleService) {
         }
     }
 
+    $scope.addArticle = function (newArticleTitle, newArticle) {
+
+        var article = {
+            poster: 1,
+            body: newArticle,
+            title: newArticleTitle,
+            datetime: new Date
+        }
+
+        $scope.articleService.addArticle(article);
+    }
+
 })

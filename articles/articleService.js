@@ -26,7 +26,7 @@ app.service('articleService', function ($http) {
     // Create New Comment
     self.createComment = function(comment){
         var createCommentPath = "http://www.scripttic.com:8000/api/v1/article/" + comment.article + "/comment";
-        $http.defaults.headers.common['Authorization'] = 'Bearer ' + 'a89f338b-bed9-4716-9ccf-a6a1329b90df';
+        $http.defaults.headers.common['Authorization'] = 'Bearer ' + '3a335ee3-8b9c-4291-85b7-a251241a3444';
         $http.post(createCommentPath, comment).then(function(response){
 
         }, function(error){
@@ -37,7 +37,7 @@ app.service('articleService', function ($http) {
     // Update Article
     self.editArticle = function (article) {
         var editArticlePath = "http://www.scripttic.com:8000/api/v1/article";
-        $http.defaults.headers.common['Authorization'] = 'Bearer ' + 'ecb75277-09d9-42e9-ba75-2458eb39b76e';
+        $http.defaults.headers.common['Authorization'] = 'Bearer ' + '3a335ee3-8b9c-4291-85b7-a251241a3444';
         $http.put(editArticlePath, article).then(function(response){
 
         }, function(error){
@@ -48,7 +48,7 @@ app.service('articleService', function ($http) {
     // Delete Article
     self.deleteArticle = function(article){
         var deleteArticlePath = "http://www.scripttic.com:8000/api/v1/article/" + article.id;
-        $http.defaults.headers.common['Authorization'] = 'Bearer ' + 'b361221d-e1d7-447d-8233-198b22f95939';
+        $http.defaults.headers.common['Authorization'] = 'Bearer ' + '3a335ee3-8b9c-4291-85b7-a251241a3444';
         $http.delete(deleteArticlePath, article).then(function(response){
 
             var existingArticles = [];
@@ -64,5 +64,16 @@ app.service('articleService', function ($http) {
         })
     }
 
+    // Create New Article
+    self.addArticle = function(article){
+
+        var addArticlePath = "http://www.scripttic.com:8000/api/v1/article";
+        $http.defaults.headers.common['Authorization'] = 'Bearer ' + 'fcd65da9-8e63-4c5e-ab31-6344407d23c2';
+        $http.post(addArticlePath, article).then(function(response){
+             window.history.back();
+        }, function(error){
+            console.log(error);
+        })
+    }
 
 })
