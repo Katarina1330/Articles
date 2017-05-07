@@ -1,5 +1,16 @@
-app.service('registrationService', function($http){
+app.service('registrationService', [ '$http', '$window',
+ function ($http, $window) {
 
     var self = this;
     self.$http = $http;
-}) 
+
+    // Registration visitor to become User:
+    self.addRegistration = function (registration) {
+
+        $http.post("http://www.scripttic.com:8000/api/v1/user", registration).then(function (response) {
+             $window.location.href = '../login/login.html';
+        }, function (error) {
+            console.log(error);
+        })
+    }
+}]) 

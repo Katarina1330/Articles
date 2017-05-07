@@ -1,4 +1,5 @@
-app.service('loginService', function($http, $httpParamSerializerJQLike){
+app.service('loginService', [ '$http', '$httpParamSerializerJQLike', '$window',
+ function($http, $httpParamSerializerJQLike, $window){
 
     var self = this;
     self.$http = $http;
@@ -19,13 +20,13 @@ app.service('loginService', function($http, $httpParamSerializerJQLike){
             }).then(function (response) {
                     // success
                     var token = response.data;
-
-                    window.history.back();
                     console.log(response);
+                    $window.location.href = '../articles/article.html'
+                    
                  },
                  function (response) {
                      // failed
                      console.log(response);
                  });
     }
-}) 
+}]) 
