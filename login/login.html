@@ -2,15 +2,73 @@
 <html>
 
 <head>
-
     <title>login</title>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-     <script src="../app.js"></script>
-     <script src="loginController.js"></script>
-     <script src="loginService.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="../app.js"></script>
+    <script src="loginController.js"></script>
+    <script src="loginService.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.6.0/angular-messages.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/utility.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/components.css">
 </head>
 
 <body>
+    <div ng-app="app">
+        <div ng-controller="loginController">
+            <div class="padding-3x">
+                <h2>Login: </h2>
+            </div>
+
+            <div class="wrapper">
+                <div class="content">
+                    <form name="loginForm" class="form-horizontal padding" novalidate>
+
+                        <div class="form-group">
+                            <label for="email" class="col-sm-1">Email*</label>
+                            <div class="col-md-4 col-sm-7">
+                                <input type="email" ng-model="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
+                                <div ng-messages="loginForm.email.$error" ng-show="loginForm.email.$touched">
+                                    <div ng-message="required">Email is required.</div>
+                                    <div ng-message="email">Please enter valid email.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="col-sm-1">Password*</label>
+                            <div class="col-md-4 col-sm-7">
+                                <input type="password" ng-model="password" name="password" class="form-control" id="password" placeholder="Enter password"
+                                    required>
+                                    <div ng-messages="loginForm.password.$error" ng-show="loginForm.password.$touched">
+                                        <div ng-message="required">Password is required.</div>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-4 col-xs-4">
+                                    <input type="button" name="submit" value="Submit" ng-click="login(email, password)" class="btn btn-primary" ng-disabled="loginForm.$invalid"
+                                    />
+
+                                    <input type="button" name="back" value="Back" onclick="history.back()" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 
