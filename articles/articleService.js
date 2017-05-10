@@ -1,6 +1,6 @@
 
-app.service('articleService', [ '$http', 'authorizationService',  
-function ($http, authorizationService) {
+app.service('articleService', [ '$http', 'authorizationService', '$window',  
+function ($http, authorizationService, $window) {
 
     var self = this;
     self.$http = $http;
@@ -56,14 +56,15 @@ function ($http, authorizationService) {
         $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
         $http.delete(deleteArticlePath, article).then(function(response){
 
-            var existingArticles = [];
-            for(var i = 0; i < self.articles.length; i++){
-                if(self.articles[i].id != article.id){
-                    existingArticles.push(self.articles[i]);
-                }
-            }
+            $window.location.href = '#/article';
+            // var existingArticles = [];
+            // for(var i = 0; i < self.articles.length; i++){
+            //     if(self.articles[i].id != article.id){
+            //         existingArticles.push(self.articles[i]);
+            //     }
+            // }
 
-            self.articles = existingArticles;
+            // self.articles = existingArticles;
         }, function(error){
             console.log(error);
         })
@@ -76,7 +77,8 @@ function ($http, authorizationService) {
         var token = authorizationService.getToken();
         $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
         $http.post(addArticlePath, article).then(function(response){
-             window.history.back();
+            window.location.href = '#/article';
+             //window.history.back();
         }, function(error){
             console.log(error);
         })

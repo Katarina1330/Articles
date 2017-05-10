@@ -64,7 +64,6 @@ app.controller('articleController',[ '$scope', 'articleService', 'authorizationS
             title: newArticleTitle,
             datetime: new Date
         }
-
         $scope.articleService.addArticle(article);
     }
 

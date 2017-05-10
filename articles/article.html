@@ -1,36 +1,9 @@
-<!DOCTYPE html>
 
-<html>
+            <a href="#/registration" ng-if="!authorizationService.isAuthorized" class="margin-lr-3x">Registration</a>
+            <a href="#/login" class="margin-lr-3x" ng-if="!authorizationService.isAuthorized">login</a>
 
-<head>
-    <title>Article</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="../app.js"></script>
-    <script src="articleController.js"></script>
-    <script src="articleService.js"></script>
-    <script src="../services/authorizationService.js"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.6.0/angular-messages.min.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="../CSS/utility.css">
-    <link rel="stylesheet" type="text/css" href="../CSS/components.css">
-
-</head>
-
-<body>
-
-    <div ng-app="app">
-        <div ng-controller="articleController">
-            <a href="../registration/registration.html" ng-if="!authorizationService.isAuthorized" class="margin-lr-3x">Registration</a>
-            <a href="../login/login.html" class="margin-lr-3x" ng-if="!authorizationService.isAuthorized">login</a>
-
-            <a href="addArticle.html" class="margin-lr-3x" ng-if="authorizationService.isAuthorized">Add Article</a>
-            <a href="article.html" class="margin-lr-3x" ng-if="authorizationService.isAuthorized" ng-click="logout()">logout</a>
+            <a href="#/addArticle" class="margin-lr-3x" ng-if="authorizationService.isAuthorized">Add Article</a>
+            <a href="#/article" class="margin-lr-3x" ng-if="authorizationService.isAuthorized" ng-click="logout()">logout</a>
 
             <div class="container container-table">
                 <div class="row vertical-center-row">
@@ -103,10 +76,3 @@
                     </div>
                 </div>
             </div>
-
-        </div>
-    </div>
-
-</body>
-
-</html>
