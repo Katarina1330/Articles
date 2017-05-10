@@ -1,4 +1,5 @@
-app.controller('articleController', function ($scope, articleService) {
+app.controller('articleController', [ '$scope', 'articleService', 'authorizationService', 
+function ($scope, articleService, authorizationService) {
 
     $scope.articleService = articleService;
 
@@ -66,4 +67,8 @@ app.controller('articleController', function ($scope, articleService) {
         $scope.articleService.addArticle(article);
     }
 
-})
+    $scope.logout = function(){
+        authorizationService.logout();
+    }
+
+}])

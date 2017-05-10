@@ -1,4 +1,5 @@
-app.service('articleService', function ($http) {
+app.service('articleService', [ '$http', 'authorizationService',  
+function ($http, authorizationService) {
 
     var self = this;
     self.$http = $http;
@@ -26,6 +27,7 @@ app.service('articleService', function ($http) {
     // Create New Comment
     self.createComment = function(comment){
         var createCommentPath = "http://www.scripttic.com:8000/api/v1/article/" + comment.article + "/comment";
+        var token = authorizationService.getToken();
         $http.defaults.headers.common['Authorization'] = 'Bearer ' + '3a335ee3-8b9c-4291-85b7-a251241a3444';
         $http.post(createCommentPath, comment).then(function(response){
 
@@ -76,4 +78,4 @@ app.service('articleService', function ($http) {
         })
     }
 
-})
+}])
