@@ -22,8 +22,8 @@ app.service('loginService', [ '$http', '$httpParamSerializerJQLike', 'authorizat
                     var token = response.data;
                     // console.log(response);
                     authorizationService.setToken(token);
-                    // $window.location.href = '../articles/article.html'
-                    window.history.back();
+                    $window.location.href = '../articles/article.html'
+                    //window.history.back();
                     
                  },
                  function (response) {

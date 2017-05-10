@@ -14,7 +14,6 @@ app.service('authorizationService', function () {
         return localStorage['token'];
     }
 
-
     self.isValid = function () {
 
         var token = localStorage['token'];
