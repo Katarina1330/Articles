@@ -1,4 +1,5 @@
-app.service('articleService', function ($http) {
+app.service('articleService', [ '$http', 'authorizationService',
+ function ($http, authorizationService) {
 
     var self = this;
     self.$http = $http;
@@ -26,7 +27,8 @@ app.service('articleService', function ($http) {
     // Create New Comment
     self.createComment = function(comment){
         var createCommentPath = "http://www.scripttic.com:8000/api/v1/article/" + comment.article + "/comment";
-        $http.defaults.headers.common['Authorization'] = 'Bearer ' + '3a335ee3-8b9c-4291-85b7-a251241a3444';
+        var token = authorizationService.getToken();
+        $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
         $http.post(createCommentPath, comment).then(function(response){
 
         }, function(error){
@@ -37,7 +39,8 @@ app.service('articleService', function ($http) {
     // Update Article
     self.editArticle = function (article) {
         var editArticlePath = "http://www.scripttic.com:8000/api/v1/article";
-        $http.defaults.headers.common['Authorization'] = 'Bearer ' + '3a335ee3-8b9c-4291-85b7-a251241a3444';
+        var token = authorizationService.getToken();
+        $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
         $http.put(editArticlePath, article).then(function(response){
 
         }, function(error){
@@ -48,7 +51,8 @@ app.service('articleService', function ($http) {
     // Delete Article
     self.deleteArticle = function(article){
         var deleteArticlePath = "http://www.scripttic.com:8000/api/v1/article/" + article.id;
-        $http.defaults.headers.common['Authorization'] = 'Bearer ' + '3a335ee3-8b9c-4291-85b7-a251241a3444';
+        var token = authorizationService.getToken();
+        $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
         $http.delete(deleteArticlePath, article).then(function(response){
 
             var existingArticles = [];
@@ -68,7 +72,8 @@ app.service('articleService', function ($http) {
     self.addArticle = function(article){
 
         var addArticlePath = "http://www.scripttic.com:8000/api/v1/article";
-        $http.defaults.headers.common['Authorization'] = 'Bearer ' + 'fcd65da9-8e63-4c5e-ab31-6344407d23c2';
+        var token = authorizationService.getToken();
+        $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
         $http.post(addArticlePath, article).then(function(response){
              window.history.back();
         }, function(error){
@@ -76,4 +81,4 @@ app.service('articleService', function ($http) {
         })
     }
 
-})
+}])

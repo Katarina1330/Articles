@@ -8,6 +8,7 @@
     <script src="../app.js"></script>
     <script src="articleController.js"></script>
     <script src="articleService.js"></script>
+    <script src="../services/authorizationService.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- jQuery library -->
@@ -25,11 +26,11 @@
 
     <div ng-app="app">
         <div ng-controller="articleController">
-            <a href="../registration/registration.html" class="margin-lr-3x">Registration</a>
-            <a href="../login/login.html" class="margin-lr-3x">login</a>
+            <a href="../registration/registration.html" ng-if="!authorizationService.isAuthorized" class="margin-lr-3x">Registration</a>
+            <a href="../login/login.html" class="margin-lr-3x" ng-if="!authorizationService.isAuthorized">login</a>
 
-            <a href="addArticle.html" class="margin-lr-3x">Add Article</a>
-
+            <a href="addArticle.html" class="margin-lr-3x" ng-if="authorizationService.isAuthorized">Add Article</a>
+            <a href="article.html" class="margin-lr-3x" ng-if="authorizationService.isAuthorized" ng-click="logout()">logout</a>
 
             <div class="container container-table">
                 <div class="row vertical-center-row">
@@ -74,7 +75,7 @@
                                             </div>
                                         </form>
 
-                                        <div class="">
+                                        <div class="" ng-if="authorizationService.isAuthorized">
                                             <input type="button" value="Leave comment" ng-hide="article.leaveComment" ng-click="toggleLeaveComment(article)" class="btn btn-primary">
                                             <input type="button" value="Save" ng-show="article.leaveComment" ng-click="toggleLeaveComment(article); createComment(article)">
                                             <input type="button" value="Cancle" ng-show="article.leaveComment" ng-click="toggleLeaveComment(article)">
@@ -85,12 +86,12 @@
                                                 class="btn btn-primary">
                                                 <input type="button" value="Hide comments" ng-show="article.showComments" ng-click="taggleShowComments(article)">
                                         </div>
-                                        <div>
+                                        <div ng-if="authorizationService.isAuthorized">
                                             <input type="button" value="Edit Article" ng-hide="article.editArticle" ng-click="toggleEditArticle(article)" class="btn btn-primary">
                                             <input type="button" value="Save" ng-show="article.editArticle" ng-click="toggleEditArticle(article); editArticle(article)">
                                             <input type="button" value="Cancle" ng-show="article.editArticle" ng-click="toggleEditArticle(article)">
                                         </div>
-                                        <div>
+                                        <div ng-if="authorizationService.isAuthorized">
                                             <input type="button" value="Delete Article" ng-click="deleteArticle(article)" class="btn btn-primary">
                                         </div>
                                     </form>
