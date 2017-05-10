@@ -1,5 +1,6 @@
-app.service('articleService', [ '$http', 'authorizationService',
- function ($http, authorizationService) {
+
+app.service('articleService', [ '$http', 'authorizationService',  
+function ($http, authorizationService) {
 
     var self = this;
     self.$http = $http;

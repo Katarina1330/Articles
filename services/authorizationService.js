@@ -5,6 +5,10 @@ app.service('authorizationService', function () {
 
     self.setToken = function (token) {
         localStorage["token"] = token;
+<<<<<<< HEAD
+=======
+        // localStorage.token = "token";
+>>>>>>> origin/master
 
         localStorage['token_time'] = new Date();
         self.isAuthorized = true;
@@ -14,6 +18,10 @@ app.service('authorizationService', function () {
         return localStorage['token'];
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
     self.isValid = function () {
 
         var token = localStorage['token'];
