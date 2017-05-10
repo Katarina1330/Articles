@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 app.controller('articleController',[ '$scope', 'articleService', 'authorizationService', 
  function ($scope, articleService, authorizationService) {
-=======
-app.controller('articleController', [ '$scope', 'articleService', 'authorizationService', 
-function ($scope, articleService, authorizationService) {
->>>>>>> origin/master
 
     $scope.articleService = articleService;
     $scope.authorizationService = authorizationService;
