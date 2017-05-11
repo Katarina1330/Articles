@@ -16,7 +16,12 @@ app.controller('articleController',[ '$scope', 'articleService', 'authorizationS
         article.leaveComment = !article.leaveComment;
     }
 
-    $scope.articleService.getArticles();
+    // $scope.articleService.getArticles();
+
+    $scope.articles = {};
+    articleService.getArticles().then(function(data) {
+        $scope.articles = data;
+    })
 
     $scope.getComments = function (article) {
         $scope.articleService.getComments(article);

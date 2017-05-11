@@ -8,8 +8,9 @@ function ($http, authorizationService, $window) {
     // Read all Articles
     self.getArticles = function () {
         var getArticlePath = "http://www.scripttic.com:8000/api/v1/article"
-        $http.get(getArticlePath).then(function (response) {
-            self.articles = response.data;
+        return $http.get(getArticlePath).then(function (response) {
+            // self.articles = response.data;
+            return response.data;
         }, function (error) {
             console.log(error);
         })

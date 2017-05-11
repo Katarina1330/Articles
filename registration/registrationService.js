@@ -8,7 +8,7 @@ app.service('registrationService', [ '$http', '$window',
     self.addRegistration = function (registration) {
 
         $http.post("http://www.scripttic.com:8000/api/v1/user", registration).then(function (response) {
-             $window.location.href = '../login/login.html';
+             $window.location.href = '#/login';
         }, function (error) {
             console.log(error);
         })
