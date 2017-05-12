@@ -1,78 +1,89 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Articles  </a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li> <a href="#/registration" ng-if="!authorizationService.isAuthorized" class="margin-lr-3x"> <span class="glyphicon glyphicon-user"></span> Registration</a> </li>
+            <li> <a href="#/addArticle" class="margin-lr-3x" ng-if="authorizationService.isAuthorized">Add Article</a> </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li> <a href="#/login" class="margin-lr-3x" ng-if="!authorizationService.isAuthorized"><span class="glyphicon glyphicon-log-in"></span> Login</a> </li>
+            <li> <a href="#/article" class="margin-lr-3x" ng-if="authorizationService.isAuthorized" ng-click="logout()"> <span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
+    </div>
+</nav>
 
-            <a href="#/registration" ng-if="!authorizationService.isAuthorized" class="margin-lr-3x">Registration</a>
-            <a href="#/login" class="margin-lr-3x" ng-if="!authorizationService.isAuthorized">login</a>
 
-            <a href="#/addArticle" class="margin-lr-3x" ng-if="authorizationService.isAuthorized">Add Article</a>
-            <a href="#/article" class="margin-lr-3x" ng-if="authorizationService.isAuthorized" ng-click="logout()">logout</a>
+<div class="container container-table">
+    <div class="row vertical-center-row">
+        <div class="text-center col-md-2 col-md-offset-2">
+            <div ng-repeat="article in articles">
 
-            <div class="container container-table">
-                <div class="row vertical-center-row">
-                    <div class="text-center col-md-2 col-md-offset-2">
-                        <div ng-repeat="article in articles">
+                <div class="post">
 
-                            <div class="post">
-
-                                <div class="article border-full">
-                                    <div class="title padding center" ng-hide="article.editArticle">
-                                        <span>{{article.title}}</span>
-                                    </div>
-                                    <div class="title padding center" ng-show="article.editArticle">
-                                        <input type="text" ng-model="article.title">
-                                    </div>
-                                    <div class="body padding" ng-hide="article.editArticle">
-                                        <span>{{article.body}}</span>
-                                    </div>
-                                    <div class="body padding" ng-show="article.editArticle">
-                                        <textarea rows="4" cols="50" ng-model="article.body"></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="footer border-row padding">
-                                    <form name="leaveCommentForm">
-
-                                        <div class="comments" ng-show="article.showComments">
-                                            <ul class="list-unstyled">
-                                                <li class="row padding-lr-2x padding-tb border-b" ng-repeat="comment in article.comments">
-                                                    <b> {{comment.title}} </b> - {{comment.body}}
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <form>
-                                            <div class="body padding center" ng-show="article.leaveComment">
-                                                <label for="newCommentTitle" class="form-horizontal"> Title: </label>
-                                                <input type="text" name="newCommentTitle" ng-model="article.newCommentTitle">
-
-                                                <textarea rows="4" cols="50" name="newComment" ng-model="article.newComment"></textarea>
-
-                                            </div>
-                                        </form>
-
-                                        <div class="" ng-if="authorizationService.isAuthorized">
-                                            <input type="button" value="Leave comment" ng-hide="article.leaveComment" ng-click="toggleLeaveComment(article)" class="btn btn-primary">
-                                            <input type="button" value="Save" ng-show="article.leaveComment" ng-click="toggleLeaveComment(article); createComment(article)">
-                                            <input type="button" value="Cancle" ng-show="article.leaveComment" ng-click="toggleLeaveComment(article)">
-                                        </div>
-
-                                        <div class="">
-                                            <input type="button" value="Show comments" ng-hide="article.showComments" ng-click="taggleShowComments(article); getComments(article)"
-                                                class="btn btn-primary">
-                                                <input type="button" value="Hide comments" ng-show="article.showComments" ng-click="taggleShowComments(article)">
-                                        </div>
-                                        <div ng-if="authorizationService.isAuthorized">
-                                            <input type="button" value="Edit Article" ng-hide="article.editArticle" ng-click="toggleEditArticle(article)" class="btn btn-primary">
-                                            <input type="button" value="Save" ng-show="article.editArticle" ng-click="toggleEditArticle(article); editArticle(article)">
-                                            <input type="button" value="Cancle" ng-show="article.editArticle" ng-click="toggleEditArticle(article)">
-                                        </div>
-                                        <div ng-if="authorizationService.isAuthorized">
-                                            <input type="button" value="Delete Article" ng-click="deleteArticle(article)" class="btn btn-primary">
-                                        </div>
-                                    </form>
-                                </div>
-
-                            </div>
-
+                    <div class="article border-full">
+                        <div class="title padding center" ng-hide="article.editArticle">
+                            <span>{{article.title}}</span>
+                        </div>
+                        <div class="title padding center" ng-show="article.editArticle">
+                            <input type="text" ng-model="article.title">
+                        </div>
+                        <div class="body padding" ng-hide="article.editArticle">
+                            <span>{{article.body}}</span>
+                        </div>
+                        <div class="body padding" ng-show="article.editArticle">
+                            <textarea rows="4" cols="50" ng-model="article.body"></textarea>
                         </div>
                     </div>
+
+                    <div class="footer border-row padding">
+                        <form name="leaveCommentForm">
+
+                            <div class="comments" ng-show="article.showComments">
+                                <ul class="list-unstyled">
+                                    <li class="row padding-lr-2x padding-tb border-b" ng-repeat="comment in article.comments">
+                                        <b> {{comment.title}} </b> - {{comment.body}}
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <form>
+                                <div class="body padding center" ng-show="article.leaveComment">
+                                    <label for="newCommentTitle" class="form-horizontal"> Title: </label>
+                                    <input type="text" name="newCommentTitle" ng-model="article.newCommentTitle">
+
+                                    <textarea rows="4" cols="50" name="newComment" ng-model="article.newComment"></textarea>
+
+                                </div>
+                            </form>
+
+                            <div class="" ng-if="authorizationService.isAuthorized">
+                                <input type="button" value="Leave comment" ng-hide="article.leaveComment" ng-click="toggleLeaveComment(article)" class="btn btn-primary">
+                                <input type="button" value="Save" ng-show="article.leaveComment" ng-click="toggleLeaveComment(article); createComment(article)">
+                                <input type="button" value="Cancle" ng-show="article.leaveComment" ng-click="toggleLeaveComment(article)">
+                            </div>
+
+                            <div class="">
+                                <input type="button" value="Show comments" ng-hide="article.showComments" ng-click="taggleShowComments(article); getComments(article)"
+                                    class="btn btn-primary">
+                                    <input type="button" value="Hide comments" ng-show="article.showComments" ng-click="taggleShowComments(article)">
+                            </div>
+                            <div ng-if="authorizationService.isAuthorized">
+                                <input type="button" value="Edit Article" ng-hide="article.editArticle" ng-click="toggleEditArticle(article)" class="btn btn-primary">
+                                <input type="button" value="Save" ng-show="article.editArticle" ng-click="toggleEditArticle(article); editArticle(article)">
+                                <input type="button" value="Cancle" ng-show="article.editArticle" ng-click="toggleEditArticle(article)">
+                            </div>
+                            <div ng-if="authorizationService.isAuthorized">
+                                <input type="button" value="Delete Article" ng-click="deleteArticle(article)" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
+
             </div>
+        </div>
+    </div>
+</div>
