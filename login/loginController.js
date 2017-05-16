@@ -5,8 +5,11 @@ app.controller('loginController', [ '$scope', 'loginService',
 
     $scope.login = function(email, password){
 
-       
+
         loginService.login(email, password);
-        
     }
+
+
+
+
 }]) 

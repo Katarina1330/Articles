@@ -44,7 +44,7 @@ function ($http, authorizationService, $window) {
         var token = authorizationService.getToken();
         $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
         $http.put(editArticlePath, article).then(function(response){
-
+            return response.data.id;
         }, function(error){
             console.log(error);
         })

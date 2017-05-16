@@ -1,4 +1,4 @@
-app.service('authorizationService', function () {
+app.service('authorizationService', function ($http) {
 
     var self = this;
     self.isAuthorized = false;
@@ -26,16 +26,50 @@ app.service('authorizationService', function () {
         if (token != null && token != undefined && convertedTime > thirtyMinBefore) {
 
             self.isAuthorized = true;
-        } else{
+        } else {
             self.logout();
         }
     }
 
-    self.logout = function(){
+    self.logout = function () {
         localStorage.token = "";
         localStorage.token_time = "";
         self.isAuthorized = false;
     }
     self.isValid();
+
+    self.getUserDetails = function () {
+
+        var token = self.getToken();
+        $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+        return $http.get("http://www.scripttic.com:8000/api/v1/user").then(function (response) {
+            console.log(response);
+            //return response.id;
+            //self.userId = response.data.id;
+            // var user = {
+            //     id: response.data.id,
+            //     email: response.data.email,
+            //     firstName: response.data.firstName,
+            //     lastName: response.data.lastName
+            // }
+
+            // var userId = user.id;
+            // self.setUserId(userId);
+
+            var userId = response.data.id;
+            localStorage['userId'] = userId;
+
+        }, function (error) {
+            console.log(error);
+        })
+    }
+
+    // self.setUserId = function (userId) {
+    //     localStorage['userId'] = userId;
+    // }
+
+    self.getUserId = function () {
+        return localStorage['userId'];
+    }
 
 }) 
