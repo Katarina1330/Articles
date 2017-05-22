@@ -55,7 +55,6 @@
                                     <input type="text" name="newCommentTitle" ng-model="article.newCommentTitle">
 
                                     <textarea rows="4" cols="50" name="newComment" ng-model="article.newComment"></textarea>
-
                                 </div>
                             </form>
 
@@ -66,7 +65,7 @@
                             </div>
 
                             <div class="">
-                                <input type="button" value="Show comments" ng-hide="article.showComments" ng-click="taggleShowComments(article); getComments(article)"
+                                <input type="button" value="Show comments" ng-hide="article.showComments" ng-click="taggleShowComments(article); getComments(article, comments)"
                                     class="btn btn-primary">
                                     <input type="button" value="Hide comments" ng-show="article.showComments" ng-click="taggleShowComments(article)">
                             </div>

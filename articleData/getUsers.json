@@ -1,6 +1,14 @@
-{
-  "id": 1,
-  "email": "test@scripttic.com",
-  "firstName": "Ivan",
-  "lastName": "Marjanovic"
-}
+[
+  {
+    "id": 1,
+    "email": "test@scripttic.com",
+    "firstName": "Ivan",
+    "lastName": "Marjanovic"
+  },
+  {
+    "id": 2,
+    "email": "test2@scripttic.com",
+    "firstName": "Pera",
+    "lastName": "Peric"
+  }
+]

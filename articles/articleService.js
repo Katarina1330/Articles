@@ -7,7 +7,8 @@ function ($http, authorizationService, $window) {
 
     // Read all Articles
     self.getArticles = function () {
-        var getArticlePath = "http://www.scripttic.com:8000/api/v1/article"
+        // var getArticlePath = "http://www.scripttic.com:8000/api/v1/article"
+        var getArticlePath = "articleData/getArticles.json"
         return $http.get(getArticlePath).then(function (response) {
             // self.articles = response.data;
             return response.data;
@@ -18,7 +19,8 @@ function ($http, authorizationService, $window) {
 
     // Read all Comments
     self.getComments = function(article){
-        var getCommentsPath = "http://www.scripttic.com:8000/api/v1/article/" + article.id + "/comment";
+        var getCommentsPath = "articleData/getComments.json" + article.id;
+        // var getCommentsPath = "http://www.scripttic.com:8000/api/v1/article/" + article.id + "/comment";
         $http.get(getCommentsPath).then(function(response){
             article.comments = response.data;
         }, function(error){

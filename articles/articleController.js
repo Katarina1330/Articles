@@ -23,7 +23,7 @@ app.controller('articleController', ['$scope', 'articleService', 'authorizationS
             $scope.articles = data;
         })
 
-        $scope.getComments = function (article) {
+        $scope.getComments = function (article, comments) {
             $scope.articleService.getComments(article);
         }
 
