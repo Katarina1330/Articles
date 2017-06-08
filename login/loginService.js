@@ -1,12 +1,12 @@
 app.service('loginService', ['$http', '$httpParamSerializerJQLike', 'authorizationService', '$window',
-    function ($http, $httpParamSerializerJQLike, authorizationService, $window) {
+    function($http, $httpParamSerializerJQLike, authorizationService, $window) {
 
         var self = this;
         self.$http = $http;
         self.$httpParamSerializerJQLike = $httpParamSerializerJQLike;
 
         // Login User
-        self.login = function (email, password) {
+        self.login = function(email, password) {
 
             var data = { 'email': email, 'password': password, 'grant_type': 'Bearer' };
 
@@ -17,21 +17,18 @@ app.service('loginService', ['$http', '$httpParamSerializerJQLike', 'authorizati
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
-            }).then(function (response) {
-                // success
-                var token = response.data;
-                // console.log(response);
+            }).then(function(response) {
+                    // success
+                    var token = response.data;
 
-                // localStorage["userEmail"] = email;
-
-
-                authorizationService.setToken(token);
-                authorizationService.getUserDetails();
-                $window.location.href = '#/article';
-            },
-                function (response) {
+                    authorizationService.setToken(token);
+                    authorizationService.getUserDetails();
+                    $window.location.href = '#/article';
+                },
+                function(response) {
                     // failed
                     console.log(response);
+
                 });
         }
 
@@ -39,7 +36,8 @@ app.service('loginService', ['$http', '$httpParamSerializerJQLike', 'authorizati
         //     return localStorage['userEmail'];
         // }
 
-        
 
 
-    }]) 
+
+    }
+])

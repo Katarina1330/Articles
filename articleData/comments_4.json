@@ -1,0 +1,18 @@
+[{
+        "id": 1,
+        "poster": 1,
+        "article": 4,
+        "body": "Comment and some",
+        "title": "Some comment",
+        "datetime": "2017-04-12T18:02"
+    },
+    {
+        "id": 2,
+        "poster": 1,
+        "article": 4,
+        "body": "drugi komentar",
+        "title": "Drugi",
+        "datetime": "2017-04-19T17:45"
+    }
+
+]
