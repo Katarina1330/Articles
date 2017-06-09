@@ -1,3 +1,11 @@
+<!--<div class="dialog"></div>
+<div class="box">
+    <div class="box">
+        <p>Do you want to delete this article? This cannot be undone!</p>
+        <input type="button" value="Cancel" />
+        <input type="button" value="Delete" />
+    </div>
+</div>-->
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -38,7 +46,7 @@
         <div class="text-center col-md-2 col-md-offset-2">
             <div ng-repeat="article in articles">
 
-                <div class="post orange">
+                <div class="post {{$even ? 'orange': 'grey'}}">
 
                     <div class="article">
                         <div class="header margin-3x">
@@ -84,7 +92,7 @@
                                 </div>
                             </form>
 
-                            <div class="upButtons">
+                            <div class="inline">
                                 <!--<div class="" ng-if="authorizationService.isAuthorized">-->
                                 <input type="button" value="Leave comment" ng-hide="article.leaveComment" ng-click="toggleLeaveComment(article)" class="btn btn-warning padding-lr-45px">
                                 <input type="button" value="Save" ng-show="article.leaveComment" ng-click="toggleLeaveComment(article); createComment(article)">
@@ -95,7 +103,7 @@
                                 <input type="button" value="Hide comments" ng-show="article.showComments" ng-click="taggleShowComments(article)">
                             </div>
 
-                            <div class="downButtons padding">
+                            <div class="inline padding">
                                 <!--<div ng-if="authorizationService.isAuthorized">-->
                                 <input type="button" value="Edit Article" ng-hide="article.editArticle" ng-click="toggleEditArticle(article)" class="btn btn-warning padding-lr-45px margin-l">
                                 <input type="button" value="Save" ng-show="article.editArticle" ng-click="toggleEditArticle(article); editArticle(article)">

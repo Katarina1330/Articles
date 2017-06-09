@@ -1,3 +1,35 @@
+.wrapper {
+    /*position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    top: 5%;
+    left: 30%;
+    display: table*/
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    height: 50%;
+    top: 30%;
+    left: 25%;
+    display: table;
+    background-color: gainsboro;
+}
+
+.content {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.position-title {
+    margin-left: 30%;
+    margin-top: 10%;
+}
+
+
 /* post component */
 
 .post {
@@ -50,11 +82,7 @@
     text-justify: inter-word;
 }
 
-.post .footer .upButtons {
-    display: inline-block;
-}
-
-.post .footer .downButtons {
+.post .footer .inline {
     display: inline-block;
 }
 
@@ -68,20 +96,6 @@
 .post .footer .comments .row {
     text-align: justify;
     text-justify: inter-word;
-}
-
-.wrapper {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    display: table
-}
-
-.content {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
 }
 
 
@@ -167,4 +181,27 @@ form div.ng-active {
 
 .color-orange {
     color: #ffb100 !important;
+}
+
+
+/*dialog*/
+
+.dialog {
+    z-index: 1;
+    opacity: 0.5;
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.box {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -150px;
+    background: black;
 }
