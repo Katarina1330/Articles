@@ -36,6 +36,7 @@ app.service('articleService', ['$http', 'authorizationService', '$window',
 
             }, function(error) {
                 console.log(error);
+                alert("Service is not available.");
             })
         }
 
@@ -48,6 +49,7 @@ app.service('articleService', ['$http', 'authorizationService', '$window',
                 return response.data.id;
             }, function(error) {
                 console.log(error);
+                alert("Service is not available.");
             })
         }
 
@@ -69,6 +71,7 @@ app.service('articleService', ['$http', 'authorizationService', '$window',
                 // self.articles = existingArticles;
             }, function(error) {
                 console.log(error);
+                alert("Service is not available.");
             })
         }
 
@@ -83,6 +86,7 @@ app.service('articleService', ['$http', 'authorizationService', '$window',
                 //window.history.back();
             }, function(error) {
                 console.log(error);
+                alert("Service is not available.");
             })
         }
 
