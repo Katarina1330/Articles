@@ -15,6 +15,7 @@
     -webkit-box-shadow: 8px 8px 31px 9px rgba(120, 120, 120, 1);
     -moz-box-shadow: 8px 8px 31px 9px rgba(120, 120, 120, 1);
     box-shadow: 8px 8px 31px 9px rgba(120, 120, 120, 1);
+    border-radius: 4px;
 }
 
 
@@ -146,17 +147,24 @@ form div.ng-active {
     color: black !important;
 }
 
-.yellow {
+.orange {
     background-color: lightyellow;
 }
 
-.yellow .header .title,
-.yellow .header .subheader {
-    background-color: yellow;
-    color: white;
+.orange .header .title,
+.orange .header .subheader {
+    background-color: #ffb100 !important;
+    color: white !important;
 }
 
-.yellow .body {
-    background-color: lightgoldenrodyellow;
-    color: black;
+.orange .body {
+    background-color: hsla(36, 100%, 80%, 1) !important;
+    color: black !important;
+}
+
+
+/*Color*/
+
+.color-orange {
+    color: #ffb100 !important;
 }
