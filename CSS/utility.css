@@ -128,6 +128,10 @@
     margin-left: 100px;
 }
 
+.margin-l-224px {
+    margin-left: 224px;
+}
+
 .margin-l-1000px {
     margin-left: 1000px;
 }
@@ -192,6 +196,13 @@
     text-align: center;
 }
 
+.center-10 {
+    display: block;
+    width: 10%;
+    margin: 0 auto;
+    text-align: center;
+}
+
 .center2 {
     position: absolute;
     width: 300px;
@@ -207,6 +218,10 @@
 
 .width-300px {
     width: 300px !important;
+}
+
+.width-390px {
+    width: 390px !important;
 }
 
 .text-style {

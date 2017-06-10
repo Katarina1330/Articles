@@ -1,34 +1,32 @@
 <div class="row">
     <div class="margin-t-10px">
         <input class="btn btn-warning width-100px margin-l-1000px margin-r-20px" type="button" name="back" value="Back" onclick="history.back()" />
-        <input class="btn btn-warning width-100px" type="button" name="registration" value="Registration" onclick="" />
+        <a href="#/registration"> <input class="btn btn-warning width-100px" type="button" name="registration" value="Register" onclick="" /> </a>
     </div>
 
     <div class="padding-3x color-orange text-style margin-t--60px margin-l">
         <h2> <b> Articles </b> </h2>
     </div>
-
 </div>
 
 
 
-<div class="border-full wrapper">
+<div class="border-full wrapper-login">
 
-    <!--position-title-->
     <div class="padding-3x margin-l-100px">
         <h2>Log in: </h2>
     </div>
 
-    <!--wrapper-->
     <div class="center-70">
         <div class="content">
+
             <form name="loginForm" class="form-horizontal padding" novalidate>
 
                 <div class="form-group padding-lr-3x">
                     <label for="email" class="col-sm-1 margin-t-10px">Email*</label>
                     <div class="col-md-4 col-sm-7">
                         <input type="email" ng-model="email" name="email" class="form-control margin-l-50px width-300px" id="email" placeholder="Enter email" required>
-                        <div ng-messages="loginForm.email.$error" ng-show="loginForm.email.$touched">
+                        <div class="row" ng-messages="loginForm.email.$error" ng-show="loginForm.email.$touched">
                             <div class="row" ng-message="required">Email is required.</div>
                             <div class="row" ng-message="email">Please enter valid email.</div>
                         </div>
