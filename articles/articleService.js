@@ -6,7 +6,7 @@ app.service('articleService', ['$http', 'authorizationService', '$window',
 
         // Read all Articles
         self.getArticles = function() {
-            // var getArticlePath = "http://www.scripttic.com:8000/api/v1/article"
+            // var getArticlePath = "http://www.scripttic.com:8000/api/v1/article";
             var getArticlePath = "articleData/getArticles.json"
             return $http.get(getArticlePath).then(function(response) {
                 // self.articles = response.data;

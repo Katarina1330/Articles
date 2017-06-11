@@ -16,6 +16,7 @@
     left: 25%;
     display: table;
     background-color: gainsboro;
+    border-radius: 4px;
 }
 
 .wrapper-registration {

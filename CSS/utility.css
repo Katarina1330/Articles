@@ -227,5 +227,7 @@
 .text-style {
     text-transform: uppercase;
     letter-spacing: 5px;
-    text-shadow: 3px 2px #737373;
+    text-shadow: 5px 5px 5px #737373;
+    font-weight: bold;
+    font-size: 30px;
 }

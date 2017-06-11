@@ -1,61 +1,65 @@
-<div class="row">
-    <div class="margin-t-10px">
-        <input class="btn btn-warning width-100px margin-l-1000px margin-r-20px" type="button" name="back" value="Back" onclick="history.back()" />
-        <a href="#/registration"> <input class="btn btn-warning width-100px" type="button" name="registration" value="Register" onclick="" /> </a>
-    </div>
+<div class="container">
+    <div class="row">
 
-    <div class="padding-3x color-orange text-style margin-t--60px margin-l">
-        <h2> <b> Articles </b> </h2>
+        <div class="col-md-6 padding-3x color-orange text-style">
+            Articles
+        </div>
+        <div class="col-md-6 padding-3x">
+            <div class="pull-right">
+                <input class="btn btn-warning" type="button" name="back" value="Back" onclick="history.back()" />
+
+                <a href="#/registration"> <input class="btn btn-warning" type="button" name="registration" value="Register" onclick="" /> </a>
+            </div>
+        </div>
+
     </div>
 </div>
 
 
 
-<div class="border-full wrapper-login">
+<div class="wrapper-login">
 
-    <div class="padding-3x margin-l-100px">
-        <h2>Log in: </h2>
+    <div class="padding-3x">
+        <h2>Log in </h2>
     </div>
 
-    <div class="center-70">
-        <div class="content">
+    <div class="">
 
-            <form name="loginForm" class="form-horizontal padding" novalidate>
 
-                <div class="form-group padding-lr-3x">
-                    <label for="email" class="col-sm-1 margin-t-10px">Email*</label>
-                    <div class="col-md-4 col-sm-7">
-                        <input type="email" ng-model="email" name="email" class="form-control margin-l-50px width-300px" id="email" placeholder="Enter email" required>
-                        <div class="row" ng-messages="loginForm.email.$error" ng-show="loginForm.email.$touched">
-                            <div class="row" ng-message="required">Email is required.</div>
-                            <div class="row" ng-message="email">Please enter valid email.</div>
-                        </div>
-                    </div>
+        <form name="loginForm" class="form-horizontal" novalidate>
+
+            <div class="form-group">
+
+                <label for="email" class="control-label col-sm-2">Email*</label>
+                <div class="col-sm-6">
+                    <input type="email" ng-model="email" name="email" class="form-control input-sm" id="email" placeholder="Enter email" required>
                 </div>
-
-                <div class="form-group padding-lr-3x">
-                    <label for="password" class="col-sm-1 margin-t-10px">Password*</label>
-                    <div class="col-md-4 col-sm-7">
-                        <input type="password" ng-model="password" name="password" class="form-control margin-l-50px width-300px" id="password" placeholder="Enter password" required>
-                        <div ng-messages="loginForm.password.$error" ng-show="loginForm.password.$touched">
-                            <div class="row" ng-message="required">Password is required.</div>
-                        </div>
-                    </div>
+                <div class="row" ng-messages="loginForm.email.$error" ng-show="loginForm.email.$touched">
+                    <div class="row" ng-message="required">Email is required.</div>
+                    <div class="row" ng-message="email">Please enter valid email.</div>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <div class="row">
-                        <div class="">
-                            <input class="btn btn-warning width-300px margin-l-84px" type="button" name="submit" value="Submit" ng-click="login(email, password)" ng-disabled="loginForm.$invalid" />
+            <div class="form-group">
 
-                            <!--<input class="btn btn-warning login-back" type="button" name="back" value="Back" onclick="history.back()" />-->
-                        </div>
-                    </div>
+                <label for="password" class="control-label col-sm-2">Password*</label>
+                <div class="col-sm-6">
+                    <input type="password" ng-model="password" name="password" class="form-control input-sm" id="password" placeholder="Enter password" required>
                 </div>
+                <div ng-messages="loginForm.password.$error" ng-show="loginForm.password.$touched">
+                    <div class="row" ng-message="required">Password is required.</div>
+                </div>
+            </div>
 
-            </form>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-6">
+                    <input class="btn btn-warning btn-block" type="button" name="submit" value="Submit" ng-click="login(email, password)" ng-disabled="loginForm.$invalid" />
+                </div>
+            </div>
 
-        </div>
+        </form>
+
+
     </div>
 
 </div>
