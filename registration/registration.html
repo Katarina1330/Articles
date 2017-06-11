@@ -1,81 +1,82 @@
-<div class="row">
-    <div class="margin-t-10px">
-        <input class="btn btn-warning width-100px margin-l-1000px margin-r-20px" type="button" name="back" value="Back" onclick="history.back()" />
-        <a href="#/login"> <input class="btn btn-warning width-100px" type="button" name="registration" value="Login" onclick="" /> </a>
-    </div>
-
-    <div class="padding-3x color-orange text-style margin-t--60px margin-l">
-        <h2> <b> Articles </b> </h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 padding-3x color-orange title head">
+            Articles
+        </div>
+        <div class="col-md-6 padding-3x">
+            <div class="pull-right">
+                <input class="btn btn-warning" type="button" name="back" value="Back" onclick="history.back()" />
+                <a href="#/login"> <input class="btn btn-warning" type="button" name="registration" value="Login" onclick="" /> </a>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="container-fluid wrapper-registration border-full ">
-    <div class="padding-2x margin-l-50px">
-        <h2>Register:</h2>
+<div class="container-fluid wrapper registration padding-3x">
+    <div class="title">
+        Register
     </div>
 
-    <div class="">
-        <div class="content center-10">
+    <div class="padding-tb-3x no-padding-b">
+        <!--<div class="content">-->
 
-            <div class="box-text">
-                <div class="border-b"> <b>Wellcome to Articles Sign Up </b></div> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                distribution of letters. as opposed to using 'Content here, content here'. making it look like readable English. Many desktop publishing packages and web page editors now use Lorem.</div>
+        <div class="box-text">
+            <div class="border-b"> <b>Wellcome to Articles Sign Up </b></div> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
+            of letters. as opposed to using 'Content here, content here'. making it look like readable English. Many desktop publishing packages and web page editors now use Lorem.</div>
 
-            <form name="registrationForm" class="form-horizontal padding-lr-3x" novalidate>
+        <form name="registrationForm" class="form-horizontal padding-lr-3x" novalidate>
 
-                <div class="form-group">
-                    <label for="firstName" class="col-sm-2">First Name *</label>
-                    <div class="col-md-4 col-sm-7">
-                        <input type="text" ng-model="firstName" name="firstName" class="form-control" id="firstName" placeholder="Enter First Name" required>
-                        <div ng-messages="registrationForm.firstName.$error" ng-show="registrationForm.firstName.$touched">
-                            <div ng-message="required">First name is required.</div>
-                        </div>
+            <div class="form-group">
+                <label for="firstName" class="control-label col-sm-2">First Name *</label>
+                <div class="col-md-4 col-sm-7">
+                    <input type="text" ng-model="firstName" name="firstName" class="form-control" id="firstName" placeholder="Enter First Name" required>
+                    <div ng-messages="registrationForm.firstName.$error" ng-show="registrationForm.firstName.$touched">
+                        <div ng-message="required">First name is required.</div>
                     </div>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="lastName" class="col-sm-2">Last Name *</label>
-                    <div class="col-md-4 col-sm-7">
-                        <input type="text" ng-model="lastName" name="lastName" class="form-control" id="lastName" placeholder="Enter Last Name" required>
-                        <div ng-messages="registrationForm.lastName.$error" ng-show="registrationForm.lastName.$touched">
-                            <div ng-message="required">Last Name is required.</div>
-                        </div>
+            <div class="form-group">
+                <label for="lastName" class="control-label col-sm-2">Last Name *</label>
+                <div class="col-md-4 col-sm-7">
+                    <input type="text" ng-model="lastName" name="lastName" class="form-control" id="lastName" placeholder="Enter Last Name" required>
+                    <div ng-messages="registrationForm.lastName.$error" ng-show="registrationForm.lastName.$touched">
+                        <div ng-message="required">Last Name is required.</div>
+                    </div>
 
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="control-label col-sm-2">Email *</label>
+                <div class="col-md-4 col-sm-7">
+                    <input type="email" ng-model="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
+                    <div ng-messages="registrationForm.email.$error" ng-show="registrationForm.email.$touched">
+                        <div ng-message="required">Email is required.</div>
+                        <div ng-message="email">Please enter valid email.</div>
                     </div>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="email" class="col-sm-2">Email *</label>
-                    <div class="col-md-4 col-sm-7">
-                        <input type="email" ng-model="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
-                        <div ng-messages="registrationForm.email.$error" ng-show="registrationForm.email.$touched">
-                            <div ng-message="required">Email is required.</div>
-                            <div ng-message="email">Please enter valid email.</div>
-                        </div>
+            <div class="form-group">
+                <label for="password" class="control-label col-sm-2">Password *</label>
+                <div class="col-md-4 col-sm-7">
+                    <input type="password" ng-model="password" name="password" class="form-control" id="password" placeholder="Enter password" required>
+                    <div ng-messages="registrationForm.password.$error" ng-show="registrationForm.password.$touched">
+                        <div ng-message="required">Password is required.</div>
                     </div>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="password" class="col-sm-2">Password *</label>
-                    <div class="col-md-4 col-sm-7">
-                        <input type="password" ng-model="password" name="password" class="form-control" id="password" placeholder="Enter password" required>
-                        <div ng-messages="registrationForm.password.$error" ng-show="registrationForm.password.$touched">
-                            <div ng-message="required">Password is required.</div>
-                        </div>
-                    </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-md-4 col-sm-7">
+                    <button class="btn btn-warning btn-block" type="button" value="Submit" ng-click="addRegistration(firstName, lastName, email, password)" ng-disabled="registrationForm.$invalid">Submit</button>
+
+                    <!--<input type="button" name="back" value="Back" onclick="history.back()" class="btn btn-primary" />-->
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-6 col-xs-6">
-                            <button class="btn btn-warning width-390px margin-l-224px" type="button" value="Submit" ng-click="addRegistration(firstName, lastName, email, password)" ng-disabled="registrationForm.$invalid">Submit</button>
-
-                            <!--<input type="button" name="back" value="Back" onclick="history.back()" class="btn btn-primary" />-->
-                        </div>
-                    </div>
-                </div>
-
-            </form>
-        </div>
+        </form>
+        <!--</div>-->
     </div>
 </div>
