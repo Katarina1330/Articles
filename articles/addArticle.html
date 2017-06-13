@@ -1,44 +1,53 @@
-
-        <div class="padding-20">
-
-            <h2>Add Article: </h2>
-            <div class="container-fluid">
-                <form name="newArticleForm" class="form-horizontal" novalidate>
-
-                    <div class="form-group">
-                        <label for="newArticleTitle" class="col-sm-9">Title *</label>
-                        <div class="col-md-4 col-sm-7">
-                            <input type="text" name="newArticleTitle" ng-model="newArticleTitle" maxlength="20" class="form-control" id="newArticleTitle"
-                                placeholder="Enter Title" required><br>
-                                <div ng-messages="newArticleForm.newArticleTitle.$error" ng-show="newArticleForm.newArticleTitle.$touched">
-                                    <div ng-message="required">Title is required.</div>
-                                </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="newArticle" class="col-sm-9">Article *</label>
-                        <div class="col-md-4 col-sm-7">
-                            <textarea rows="4" cols="50" name="newArticle" ng-model="newArticle" maxlength="255" class="form-control" id="newArticle"
-                                placeholder="Enter Article" required> </textarea><br>
-                                <div ng-messages="newArticleForm.newArticle.$error" ng-show="newArticleForm.newArticle.$touched">
-                                    <div ng-message="required">Text is required</div>
-                                </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div align="center">
-                            <div class="row">
-                                <div class="col-md-2 col-xs-2">
-                                    <input type="button" name="addArticle" value="Add" ng-click="addArticle(newArticleTitle, newArticle)" class="btn btn-primary"
-                                        ng-disabled="newArticleForm.$invalid">
-
-                                    <input type="button" name="back" value="Back" onclick="history.back()" class="btn btn-primary">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 padding-3x color-orange title head">
+            Articles
+        </div>
+        <div class="col-md-6 padding-3x">
+            <div class="pull-right">
+                <!--onclick="history.back()"-->
+                <a href="#/article"><input class="btn btn-warning" type="button" name="back" value="Cancel" /></a>
             </div>
         </div>
+    </div>
+</div>
+
+
+
+<div class="wrapper login padding-3x">
+    <div class="title">
+        Add Article
+    </div>
+    <div class="padding-tb-3x no-padding-b">
+        <form name="newArticleForm" class="form-horizontal" novalidate>
+
+            <div class="form-group">
+                <label for="newArticleTitle" class="control-label col-sm-2">Title *</label>
+                <div class="col-sm-6">
+                    <input type="text" name="newArticleTitle" ng-model="newArticleTitle" maxlength="20" class="form-control input-sm" id="newArticleTitle" placeholder="Enter Title" required><br>
+                    <div ng-messages="newArticleForm.newArticleTitle.$error" ng-show="newArticleForm.newArticleTitle.$touched">
+                        <div ng-message="required">Title is required.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="newArticle" class="control-label col-sm-2">Article *</label>
+                <div class="col-sm-6">
+                    <textarea rows="4" cols="50" name="newArticle" ng-model="newArticle" maxlength="255" class="form-control input-sm" id="newArticle" placeholder="Enter Article" required> </textarea><br>
+                    <div ng-messages="newArticleForm.newArticle.$error" ng-show="newArticleForm.newArticle.$touched">
+                        <div ng-message="required">Text is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-6">
+                    <input type="button" name="addArticle" value="Add" ng-click="addArticle(newArticleTitle, newArticle)" class="btn btn-warning btn-block" ng-disabled="newArticleForm.$invalid">
+
+                    <!--<input type="button" name="back" value="Back" onclick="history.back()" class="btn btn-primary">-->
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

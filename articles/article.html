@@ -72,7 +72,7 @@
                         </div>
                     </div>
 
-                    <div class="footer margin-3x">
+                    <div class="footer">
                         <form name="leaveCommentForm">
 
                             <div class="comments" ng-show="article.showComments">
@@ -92,26 +92,26 @@
                                 </div>
                             </form>
 
-                            <div class="inline">
+                            <div class="col-sm-offset-2">
                                 <!--<div class="" ng-if="authorizationService.isAuthorized">-->
-                                <input type="button" value="Leave comment" ng-hide="article.leaveComment" ng-click="toggleLeaveComment(article)" class="btn btn-warning padding-lr-45px">
+                                <input type="button" value="Leave comment" ng-hide="article.leaveComment" ng-click="toggleLeaveComment(article)" class="btn btn-warning">
                                 <input type="button" value="Save" ng-show="article.leaveComment" ng-click="toggleLeaveComment(article); createComment(article)">
                                 <input type="button" value="Cancle" ng-show="article.leaveComment" ng-click="toggleLeaveComment(article)">
                                 <!--</div>-->
 
-                                <input type="button" value="Show comments" ng-hide="article.showComments" ng-click="taggleShowComments(article); getComments(article, comments)" class="btn btn-warning padding-lr-45px">
+                                <input type="button" value="Show comments" ng-hide="article.showComments" ng-click="taggleShowComments(article); getComments(article, comments)" class="btn btn-warning">
                                 <input type="button" value="Hide comments" ng-show="article.showComments" ng-click="taggleShowComments(article)">
                             </div>
 
-                            <div class="inline padding">
+                            <div class="padding-3x col-sm-offset-2">
                                 <!--<div ng-if="authorizationService.isAuthorized">-->
-                                <input type="button" value="Edit Article" ng-hide="article.editArticle" ng-click="toggleEditArticle(article)" class="btn btn-warning padding-lr-45px margin-l">
+                                <input type="button" value="Edit Article" ng-hide="article.editArticle" ng-click="toggleEditArticle(article)" class="btn btn-warning">
                                 <input type="button" value="Save" ng-show="article.editArticle" ng-click="toggleEditArticle(article); editArticle(article)">
                                 <input type="button" value="Cancle" ng-show="article.editArticle" ng-click="toggleEditArticle(article)">
                                 <!--</div>-->
 
                                 <!--<div ng-if="authorizationService.isAuthorized">-->
-                                <input type="button" value="Delete Article" ng-click="deleteArticle(article)" class="btn btn-warning padding-lr-45px">
+                                <input type="button" value="Delete Article" ng-click="deleteArticle(article)" class="btn btn-warning">
                                 <!--</div>-->
                             </div>
                         </form>
