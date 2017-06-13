@@ -1,33 +1,35 @@
 app.controller('articleController', ['$scope', 'articleService', 'authorizationService',
-    function ($scope, articleService, authorizationService) {
+    function($scope, articleService, authorizationService) {
 
         $scope.articleService = articleService;
         $scope.authorizationService = authorizationService;
 
-        $scope.toggleEditArticle = function (article) {
+        $scope.displayDeleteDialog = false;
+
+        $scope.toggleEditArticle = function(article) {
             article.editArticle = !article.editArticle;
         }
 
-        $scope.taggleShowComments = function (article) {
+        $scope.taggleShowComments = function(article) {
             article.showComments = !article.showComments;
         }
 
-        $scope.toggleLeaveComment = function (article) {
+        $scope.toggleLeaveComment = function(article) {
             article.leaveComment = !article.leaveComment;
         }
 
         // $scope.articleService.getArticles();
 
         $scope.articles = {};
-        articleService.getArticles().then(function (data) {
+        articleService.getArticles().then(function(data) {
             $scope.articles = data;
         })
 
-        $scope.getComments = function (article, comments) {
+        $scope.getComments = function(article, comments) {
             $scope.articleService.getComments(article);
         }
 
-        $scope.createComment = function (article) {
+        $scope.createComment = function(article) {
 
             var userId = authorizationService.getUserId();
             var comment = {
@@ -44,7 +46,7 @@ app.controller('articleController', ['$scope', 'articleService', 'authorizationS
             $scope.articleService.createComment(comment);
         }
 
-        $scope.editArticle = function (article) {
+        $scope.editArticle = function(article) {
             var userId = authorizationService.getUserId();
             var article = {
                 id: article.id,
@@ -57,14 +59,27 @@ app.controller('articleController', ['$scope', 'articleService', 'authorizationS
             $scope.articleService.editArticle(article);
         }
 
-        $scope.deleteArticle = function (article) {
-            var r = confirm("Do you want to delete your Article?");
-            if (r == true) {
-                $scope.articleService.deleteArticle(article);
-            }
+        $scope.openDeleteDialog = function(article) {
+            $scope.displayDeleteDialog = true;
+            $scope.selectedArticle = article;
         }
 
-        $scope.addArticle = function (newArticleTitle, newArticle) {
+        $scope.cancelArticle = function() {
+            $scope.displayDeleteDialog = false;
+            $scope.selectedArticle = null;
+        }
+
+        $scope.deleteArticle = function() {
+            // var r = confirm("Do you want to delete your Article?");
+
+            if ($scope.displayDeleteDialog == true) {
+                $scope.articleService.deleteArticle($scope.selectedArticle);
+            }
+            $scope.displayDeleteDialog = false;
+            $scope.selectedArticle = null;
+        }
+
+        $scope.addArticle = function(newArticleTitle, newArticle) {
             var userId = authorizationService.getUserId();
             var article = {
                 poster: userId,
@@ -75,8 +90,9 @@ app.controller('articleController', ['$scope', 'articleService', 'authorizationS
             $scope.articleService.addArticle(article);
         }
 
-        $scope.logout = function () {
+        $scope.logout = function() {
             authorizationService.logout();
         }
 
-    }])
+    }
+])

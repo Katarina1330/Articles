@@ -1,11 +1,14 @@
-<!--<div class="dialog"></div>
-<div class="box">
+<div ng-if="displayDeleteDialog">
+    <div class="dialog"></div>
     <div class="box">
-        <p>Do you want to delete this article? This cannot be undone!</p>
-        <input type="button" value="Cancel" />
-        <input type="button" value="Delete" />
+        <div class="box">
+            <p>Do you want to delete this article? <br> This cannot be undone!</p>
+            <input type="button" value="Cancel" ng-click="cancelArticle()" />
+            <input type="button" value="Delete" ng-click="deleteArticle()" />
+        </div>
     </div>
-</div>-->
+</div>
+
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -111,7 +114,8 @@
                                 <!--</div>-->
 
                                 <!--<div ng-if="authorizationService.isAuthorized">-->
-                                <input type="button" value="Delete Article" ng-click="deleteArticle(article)" class="btn btn-warning">
+                                <!--ng-click="deleteArticle(article)"-->
+                                <input type="button" value="Delete Article" ng-click="openDeleteDialog(article)" class="btn btn-warning">
                                 <!--</div>-->
                             </div>
                         </form>
