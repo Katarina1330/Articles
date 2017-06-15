@@ -1,10 +1,12 @@
 <div ng-if="displayDeleteDialog">
     <div class="dialog"></div>
     <div class="box">
-        <div class="box">
-            <p>Do you want to delete this article? <br> This cannot be undone!</p>
-            <input type="button" value="Cancel" ng-click="cancelArticle()" />
-            <input type="button" value="Delete" ng-click="deleteArticle()" />
+        <div class="dialog-text padding-3x">
+            Do you want to delete this article? <br> This cannot be undone!
+        </div>
+        <div class="padding-3x">
+            <input class="btn btn-default btn-lg margin-lr-3x" type="button" value="Cancel" ng-click="cancelArticle()" />
+            <input class="btn btn-danger btn-lg" type="button" value="Delete" ng-click="deleteArticle()" />
         </div>
     </div>
 </div>

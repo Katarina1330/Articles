@@ -172,6 +172,11 @@
     text-shadow: 5px 5px 5px #737373;
 }
 
+.dialog-text {
+    font-weight: bold;
+    color: white;
+}
+
 .text-style {
     text-transform: uppercase;
     letter-spacing: 5px;
