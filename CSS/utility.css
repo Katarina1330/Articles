@@ -111,6 +111,10 @@
     margin-left: 25px;
 }
 
+.margin-t {
+    margin-top: 8px !important;
+}
+
 .no-margin {
     margin: 0px !important;
 }

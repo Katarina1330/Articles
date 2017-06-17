@@ -98,7 +98,7 @@
     height: 100px;
     width: 100%;
     overflow-y: scroll;
-    background-color: gray;
+    background-color: hsla(36, 100%, 80%, 1) !important;
 }
 
 .post .footer .comments .row {
@@ -240,4 +240,50 @@ form div.ng-active {
     width: 400px;
     padding: 8px;
     margin-bottom: 10px;
+}
+
+.expand-slide-showComments {
+    height: 0;
+    overflow: hidden;
+    transition: all .75s;
+    padding: 0;
+}
+
+.expand-slide-showComments.open {
+    height: 170px;
+    width: 420px;
+    padding: 8px;
+    margin-left: 15px;
+}
+
+
+/*GridView*/
+
+.grid {
+    padding: 1px 0px 1px 0px;
+    height: 100px;
+    width: 100%;
+    overflow-y: scroll;
+    background-color: hsla(36, 100%, 80%, 1) !important;
+}
+
+.grid .header .title {
+    font: 600 1.5em/1 'Raleway', sans-serif;
+    color: rgba(0, 0, 0, .5);
+    text-align: center;
+    text-transform: uppercase;
+    word-wrap: break-word;
+}
+
+.grid .header .subheader {
+    color: gray;
+    font-style: italic;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.grid .body {
+    font-family: arial;
+    text-align: justify;
+    text-justify: inter-word;
 }

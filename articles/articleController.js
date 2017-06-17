@@ -10,17 +10,15 @@ app.controller('articleController', ['$scope', 'articleService', 'authorizationS
             article.editArticle = !article.editArticle;
         }
 
-        $scope.taggleShowComments = function(article) {
-            article.showComments = !article.showComments;
-        }
-
         $scope.toggleLeaveComment = function(article) {
             article.animateLeaveComment = article.animateLeaveComment === 'open' ? '' : 'open';
             article.leaveComment = !article.leaveComment;
         }
 
-
-
+        $scope.taggleShowComments = function(article) {
+            article.animateShowComments = article.animateShowComments === 'open' ? '' : 'open';
+            article.showComments = !article.showComments;
+        }
 
         // $scope.articleService.getArticles();
 

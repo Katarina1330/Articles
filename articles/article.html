@@ -77,13 +77,6 @@
 
                     <div class="footer">
                         <form name="leaveCommentForm">
-                            <div class="comments" ng-show="article.showComments">
-                                <ul class="list-unstyled">
-                                    <li class="row padding-lr-2x padding-tb border-b" ng-repeat="comment in article.comments">
-                                        <b> {{comment.title}} </b> - {{comment.body}}
-                                    </li>
-                                </ul>
-                            </div>
 
                             <form>
                                 <!--ng-show="article.leaveComment"-->
@@ -98,6 +91,56 @@
                                 </div>
                             </form>
 
+                            <!--ng-show="article.showComments"-->
+
+                            <div class="expand-slide-showComments" ng-class="article.animateShowComments">
+                                <div class="comments">
+                                    <ul class="list-unstyled">
+                                        <li class="padding-lr-2x padding-tb border-b" ng-repeat="comment in article.comments">
+                                            <b> {{comment.title}} </b> - {{comment.body}}
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <input type="button" value="Hide comments" class="btn btn-info center margin-t" ng-show="article.showComments" ng-click="taggleShowComments(article)">
+                            </div>
+
+                            <!--<div class="expand-slide-showComments" ng-class="article.animateShowComments">
+                                <div class="grid padding-2x">
+                                    <div class="header">
+                                        <div class="title padding-3x border-bottom">
+                                            <h2> <b>Comments </b> </h2>
+                                        </div>
+                                        <div class="border-bottom">
+                                            <div class="subheader container ">
+                                                <div class="row ">
+                                                    <div class="col-sm-6">
+                                                        <b>Title</b>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <b>Comment</b>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="body container">
+                                        <div class="row" ng-repeat="comment in article.comments">
+                                            <div class="col-sm-6">
+                                                {{comment.title}}
+                                            </div>
+                                            <div class="col-sm-6">
+                                                {{comment.body}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <input type="button" value="Hide comments" class="btn btn-info center margin-t" ng-show="article.showComments" ng-click="taggleShowComments(article)">
+                            </div>-->
+
                             <div class="center-line">
                                 <!--<div class="" ng-if="authorizationService.isAuthorized">-->
                                 <input type="button" value="Leave comment" class="btn btn-warning" ng-hide="article.leaveComment" ng-click="toggleLeaveComment(article)">
@@ -105,7 +148,7 @@
                                 <!--</div>-->
 
                                 <input type="button" value="Show comments" ng-hide="article.showComments" ng-click="taggleShowComments(article); getComments(article, comments)" class="btn btn-warning">
-                                <input type="button" value="Hide comments" ng-show="article.showComments" ng-click="taggleShowComments(article)">
+
                             </div>
 
                             <div class="padding-3x center-line">
