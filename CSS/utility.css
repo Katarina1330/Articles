@@ -142,12 +142,24 @@
     border-width: 0px 0px 1px 0px;
 }
 
+.border-radius {
+    border: 1px solid;
+    border-radius: 4px;
+}
+
 
 /* centering */
 
 .center {
     display: block;
     width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.center-line {
+    display: block;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
 }

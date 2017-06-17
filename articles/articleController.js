@@ -15,8 +15,12 @@ app.controller('articleController', ['$scope', 'articleService', 'authorizationS
         }
 
         $scope.toggleLeaveComment = function(article) {
+            article.animateLeaveComment = article.animateLeaveComment === 'open' ? '' : 'open';
             article.leaveComment = !article.leaveComment;
         }
+
+
+
 
         // $scope.articleService.getArticles();
 

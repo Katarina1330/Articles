@@ -20,9 +20,7 @@
         </div>
         <ul class="nav navbar-nav">
             <li class="active">
-
                 <a class="margin-lr-3x color-orange" href="#/article">Home </a>
-
             </li>
             <li>
                 <a class="margin-lr-3x color-orange" href="#/registration" ng-if="!authorizationService.isAuthorized"> <span class="glyphicon glyphicon-user"></span> Registration
@@ -79,7 +77,6 @@
 
                     <div class="footer">
                         <form name="leaveCommentForm">
-
                             <div class="comments" ng-show="article.showComments">
                                 <ul class="list-unstyled">
                                     <li class="row padding-lr-2x padding-tb border-b" ng-repeat="comment in article.comments">
@@ -89,26 +86,29 @@
                             </div>
 
                             <form>
-                                <div class="body padding center" ng-show="article.leaveComment">
-                                    <label for="newCommentTitle" class="form-horizontal"> Title: </label>
-                                    <input type="text" name="newCommentTitle" ng-model="article.newCommentTitle">
+                                <!--ng-show="article.leaveComment"-->
+                                <div class="body padding center expand-slide" ng-class="article.animateLeaveComment">
 
-                                    <textarea rows="4" cols="50" name="newComment" ng-model="article.newComment"></textarea>
+                                    <label for="newCommentTitle" class="form-horizontal "> Title: </label>
+                                    <input class="border-radius" type="text" name="newCommentTitle" ng-model="article.newCommentTitle">
+
+                                    <textarea class="border-radius" rows="4" cols="50" name="newComment" ng-model="article.newComment"></textarea>
+                                    <input type="button" value="Save" class="btn btn-info" ng-show="article.leaveComment" ng-click="toggleLeaveComment(article); createComment(article)">
+                                    <input type="button" value="Cancel" class="btn btn-default" ng-show="article.leaveComment" ng-click="toggleLeaveComment(article)">
                                 </div>
                             </form>
 
-                            <div class="col-sm-offset-2">
+                            <div class="center-line">
                                 <!--<div class="" ng-if="authorizationService.isAuthorized">-->
-                                <input type="button" value="Leave comment" ng-hide="article.leaveComment" ng-click="toggleLeaveComment(article)" class="btn btn-warning">
-                                <input type="button" value="Save" ng-show="article.leaveComment" ng-click="toggleLeaveComment(article); createComment(article)">
-                                <input type="button" value="Cancle" ng-show="article.leaveComment" ng-click="toggleLeaveComment(article)">
+                                <input type="button" value="Leave comment" class="btn btn-warning" ng-hide="article.leaveComment" ng-click="toggleLeaveComment(article)">
+
                                 <!--</div>-->
 
                                 <input type="button" value="Show comments" ng-hide="article.showComments" ng-click="taggleShowComments(article); getComments(article, comments)" class="btn btn-warning">
                                 <input type="button" value="Hide comments" ng-show="article.showComments" ng-click="taggleShowComments(article)">
                             </div>
 
-                            <div class="padding-3x col-sm-offset-2">
+                            <div class="padding-3x center-line">
                                 <!--<div ng-if="authorizationService.isAuthorized">-->
                                 <input type="button" value="Edit Article" ng-hide="article.editArticle" ng-click="toggleEditArticle(article)" class="btn btn-warning">
                                 <input type="button" value="Save" ng-show="article.editArticle" ng-click="toggleEditArticle(article); editArticle(article)">

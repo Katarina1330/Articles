@@ -224,3 +224,20 @@ form div.ng-active {
     text-align: start;
     line-height: 2;
 }
+
+
+/*Animation*/
+
+.expand-slide {
+    height: 0;
+    overflow: hidden;
+    transition: all .75s;
+    padding: 0;
+}
+
+.expand-slide.open {
+    height: 170px;
+    width: 400px;
+    padding: 8px;
+    margin-bottom: 10px;
+}
