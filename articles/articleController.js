@@ -7,6 +7,7 @@ app.controller('articleController', ['$scope', 'articleService', 'authorizationS
         $scope.displayDeleteDialog = false;
 
         $scope.toggleEditArticle = function(article) {
+            article.animateEditArticle = article.animateEditArticle === 'open' ? '' : 'open';
             article.editArticle = !article.editArticle;
         }
 

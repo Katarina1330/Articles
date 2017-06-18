@@ -61,6 +61,10 @@
 
 /* styling */
 
+.post .article .header {
+    border-radius: 4px;
+}
+
 .post .article .header .title {
     font: 600 1.5em/1 'Raleway', sans-serif;
     color: rgba(0, 0, 0, .5);
@@ -82,12 +86,18 @@
     font-style: inherit;
     text-align: justify;
     text-justify: inter-word;
+    border-radius: 4px;
 }
 
 .post .footer {
     font-family: arial;
     text-align: justify;
     text-justify: inter-word;
+}
+
+.post .footer .body input[type="text"],
+.post .footer .body textarea {
+    width: 100%;
 }
 
 .post .footer .inline {
@@ -99,6 +109,7 @@
     width: 100%;
     overflow-y: scroll;
     background-color: hsla(36, 100%, 80%, 1) !important;
+    border-radius: 4px;
 }
 
 .post .footer .comments .row {
@@ -191,6 +202,10 @@ form div.ng-active {
     color: #ffb100 !important;
 }
 
+.color-black {
+    color: black;
+}
+
 
 /*dialog*/
 
@@ -229,31 +244,15 @@ form div.ng-active {
 /*Animation*/
 
 .expand-slide {
-    height: 0;
+    max-height: 0;
     overflow: hidden;
-    transition: all .75s;
+    transition: all 1.75s;
     padding: 0;
 }
 
 .expand-slide.open {
-    height: 170px;
-    width: 400px;
-    padding: 8px;
-    margin-bottom: 10px;
-}
-
-.expand-slide-showComments {
-    height: 0;
-    overflow: hidden;
-    transition: all .75s;
-    padding: 0;
-}
-
-.expand-slide-showComments.open {
-    height: 170px;
-    width: 420px;
-    padding: 8px;
-    margin-left: 15px;
+    /*height: 150px;*/
+    max-height: 350px;
 }
 
 

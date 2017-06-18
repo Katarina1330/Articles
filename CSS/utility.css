@@ -191,6 +191,7 @@
 .dialog-text {
     font-weight: bold;
     color: white;
+    text-align: center;
 }
 
 .text-style {
