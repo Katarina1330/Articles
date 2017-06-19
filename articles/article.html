@@ -59,9 +59,9 @@
                             <div class="title padding-3x" ng-show="article.editArticle">
                                 <input class="border-radius color-black" type="text" ng-model="article.title">
                             </div>
-                            <div class="subheader padding-lr-3x">
+                            <!--<div class="subheader padding-lr-3x">
                                 {{article.subheader}}
-                            </div>
+                            </div>-->
                         </div>
 
                         <div class="body margin-3x no-margin-b" ng-hide="article.editArticle">
@@ -69,8 +69,10 @@
                                 <span>{{article.body}}</span>
                             </div>
                         </div>
-                        <div class="body padding" ng-show="article.editArticle">
-                            <textarea class="border-radius" rows="14" cols="59" ng-model="article.body"></textarea>
+                        <div class="body margin-3x no-margin-b" ng-show="article.editArticle">
+                            <div class="padding-3x">
+                                <textarea class="border-radius" rows="14" cols="47" ng-model="article.body"></textarea>
+                            </div>
                         </div>
                     </div>
 
@@ -107,22 +109,22 @@
 
                             <div class="center-line padding-tb-3x no-padding-b">
                                 <!--<div class="" ng-if="authorizationService.isAuthorized">-->
-                                <input type="button" value="Leave comment" class="btn btn-warning" ng-hide="article.leaveComment" ng-click="toggleLeaveComment(article)">
+                                <input type="button" value="Leave comment" ng-disabled="article.editArticle ||  article.showComments || article.leaveComment" class="btn btn-warning" ng-click="toggleLeaveComment(article)">
                                 <!--</div>-->
 
-                                <input type="button" value="Show comments" ng-hide="article.showComments" ng-click="taggleShowComments(article); getComments(article, comments)" class="btn btn-warning">
+                                <input type="button" value="Show comments" ng-disabled="article.editArticle || article.leaveComment || article.showComments" ng-click="taggleShowComments(article); getComments(article, comments)" class="btn btn-warning">
                             </div>
 
                             <div class="padding-3x center-line">
                                 <!--<div ng-if="authorizationService.isAuthorized">-->
-                                <input type="button" value="Edit Article" ng-hide="article.editArticle" ng-click="toggleEditArticle(article)" class="btn btn-warning">
+                                <input type="button" value="Edit Article" ng-disabled="article.leaveComment ||  article.showComments" ng-hide="article.editArticle" ng-click="toggleEditArticle(article)" class="btn btn-warning">
                                 <input type="button" value="Save" class="btn btn-info" ng-show="article.editArticle" ng-click="toggleEditArticle(article); editArticle(article)">
-                                <input type="button" value="Cancle" class="btn btn-default" ng-show="article.editArticle" ng-click="toggleEditArticle(article)">
+                                <input type="button" value="Cancel" class="btn btn-default" ng-show="article.editArticle" ng-click="toggleEditArticle(article)">
                                 <!--</div>-->
 
                                 <!--<div ng-if="authorizationService.isAuthorized">-->
                                 <!--ng-click="deleteArticle(article)"-->
-                                <input type="button" value="Delete Article" ng-click="openDeleteDialog(article)" class="btn btn-warning">
+                                <input type="button" value="Delete Article" ng-disabled="article.editArticle || article.leaveComment ||  article.showComments" ng-click="openDeleteDialog(article)" class="btn btn-warning">
                                 <!--</div>-->
                             </div>
                         </form>
