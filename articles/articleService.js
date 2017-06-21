@@ -71,7 +71,8 @@ app.service('articleService', ['$http', 'authorizationService', '$window',
                 // self.articles = existingArticles;
             }, function(error) {
                 console.log(error);
-                alert("Service is not available.");
+                // alert("Service is not available.");
+
             })
         }
 

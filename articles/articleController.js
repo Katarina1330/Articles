@@ -1,5 +1,5 @@
-app.controller('articleController', ['$scope', 'articleService', 'authorizationService',
-    function($scope, articleService, authorizationService) {
+app.controller('articleController', ['$scope', 'articleService', 'authorizationService', '$timeout',
+    function($scope, articleService, authorizationService, $timeout) {
 
         $scope.articleService = articleService;
         $scope.authorizationService = authorizationService;
@@ -76,10 +76,27 @@ app.controller('articleController', ['$scope', 'articleService', 'authorizationS
             // var r = confirm("Do you want to delete your Article?");
 
             if ($scope.displayDeleteDialog == true) {
+
                 $scope.articleService.deleteArticle($scope.selectedArticle);
+
             }
+
             $scope.displayDeleteDialog = false;
             $scope.selectedArticle = null;
+
+            if ($scope.selectedArticle == null) {
+                $scope.displayToast = true;
+                $timeout(cancelTimeout, 5000);
+
+            }
+        }
+
+        var cancelTimeout = function() {
+            $scope.displayToast = false;
+        }
+
+        $scope.cancelDialog = function() {
+            $scope.displayToast = false;
         }
 
         $scope.addArticle = function(newArticleTitle, newArticle) {
@@ -96,6 +113,21 @@ app.controller('articleController', ['$scope', 'articleService', 'authorizationS
         $scope.logout = function() {
             authorizationService.logout();
         }
+
+
+        $scope.errorMessage = function() {
+            $scope.displayToast = true;
+            $timeout(cancelTimeout, 5000);
+
+            $scope.cancelDialog = function() {
+                $scope.displayToast = false;
+            }
+
+            $scope.cancelDialog = function() {
+                $scope.displayToast = false;
+            }
+        }
+
 
     }
 ])

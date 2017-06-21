@@ -1,3 +1,14 @@
+<!--Toast-->
+<div ng-if="displayToast">
+    <div class="toast show margin-3x ">
+        <div class="padding-2x ">
+            Service is not available!
+            <a class="text-style-toast nounderline cancel" href="" ng-click="cancelDialog()"> CANCEL </a>
+        </div>
+    </div>
+</div>
+
+<!--Dialog-->
 <div ng-if="displayDeleteDialog">
     <div class="dialog"></div>
     <div class="box">
@@ -11,7 +22,8 @@
     </div>
 </div>
 
-<nav class="navbar navbar-inverse">
+<!--Cards-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#/article">
