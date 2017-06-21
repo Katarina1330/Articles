@@ -291,24 +291,17 @@ form div.ng-active {
 /*Toast*/
 
 .toast {
-    visibility: hidden;
+    visibility: visible;
     width: 20%;
     height: 50px;
-    /*margin-left: -125px;*/
     background-color: #333;
     color: #fff;
     /*text-align: center;*/
     border-radius: 4px;
     position: fixed;
     z-index: 1;
-    left: 74.2%;
+    left: 76.1%;
     top: 8.2%;
-}
-
-.toast.show {
-    visibility: visible;
-    /*-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;*/
 }
 
 .text-style-toast {
@@ -334,4 +327,13 @@ a.cancel:hover {
     -webkit-transform: scale(1.5, 1.25);
     -o-transform: scale(1.5, 1.25);
     background-color: #666;
+}
+
+.expand-slide-toast {
+    opacity: 0;
+    transition: all 2s;
+}
+
+.expand-slide-toast.open {
+    opacity: 1;
 }

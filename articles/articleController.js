@@ -78,8 +78,8 @@ app.controller('articleController', ['$scope', 'articleService', 'authorizationS
             if ($scope.displayDeleteDialog == true) {
 
                 $scope.articleService.deleteArticle($scope.selectedArticle, null, function() {
-                    $scope.displayToast = true;
-                    $timeout(cancelTimeout, 5000);
+                    $scope.displayToast = $scope.displayToast === 'open' ? '' : 'open';;
+                    $timeout(cancelTimeout, 7000);
                 });
             }
 
@@ -88,11 +88,11 @@ app.controller('articleController', ['$scope', 'articleService', 'authorizationS
         }
 
         var cancelTimeout = function() {
-            $scope.displayToast = false;
+            $scope.displayToast = '';
         }
 
-        $scope.cancelDialog = function() {
-            $scope.displayToast = false;
+        $scope.cancelToast = function() {
+            $scope.displayToast = '';
         }
 
         $scope.addArticle = function(newArticleTitle, newArticle) {
