@@ -77,18 +77,14 @@ app.controller('articleController', ['$scope', 'articleService', 'authorizationS
 
             if ($scope.displayDeleteDialog == true) {
 
-                $scope.articleService.deleteArticle($scope.selectedArticle);
-
+                $scope.articleService.deleteArticle($scope.selectedArticle, null, function() {
+                    $scope.displayToast = true;
+                    $timeout(cancelTimeout, 5000);
+                });
             }
 
             $scope.displayDeleteDialog = false;
             $scope.selectedArticle = null;
-
-            if ($scope.selectedArticle == null) {
-                $scope.displayToast = true;
-                $timeout(cancelTimeout, 5000);
-
-            }
         }
 
         var cancelTimeout = function() {

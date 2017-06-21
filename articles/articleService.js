@@ -54,7 +54,7 @@ app.service('articleService', ['$http', 'authorizationService', '$window',
         }
 
         // Delete Article
-        self.deleteArticle = function(article) {
+        self.deleteArticle = function(article, success, fail) {
             var deleteArticlePath = "http://www.scripttic.com:8000/api/v1/article/" + article.id;
             var token = authorizationService.getToken();
             $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
@@ -72,6 +72,10 @@ app.service('articleService', ['$http', 'authorizationService', '$window',
             }, function(error) {
                 console.log(error);
                 // alert("Service is not available.");
+                if (fail) {
+                    fail();
+                }
+
 
             })
         }
