@@ -1,18 +1,30 @@
-app.controller('registrationController', [ '$scope', 'registrationService',
- function ($scope, registrationService) {
+app.controller('registrationController', ['$scope', 'registrationService', '$timeout',
+    function($scope, registrationService, $timeout) {
 
-    $scope.registrationService = registrationService;
+        $scope.registrationService = registrationService;
 
-    $scope.addRegistration = function (firstName, lastName, email, password) {
+        $scope.addRegistration = function(firstName, lastName, email, password) {
 
-        var registration = {
-            email: email,
-            pass: password,
-            firstName: firstName,
-            lastName: lastName
+            var registration = {
+                email: email,
+                pass: password,
+                firstName: firstName,
+                lastName: lastName
+            }
+
+            registrationService.addRegistration(registration, null, function() {
+                $scope.displayToast = $scope.displayToast === 'open' ? '' : 'open';
+                $timeout(cancelTimeout, 7000);
+            });
         }
-        
-        registrationService.addRegistration(registration);
+
+        var cancelTimeout = function() {
+            $scope.displayToast = '';
+        }
+
+        $scope.cancelToast = function() {
+            $scope.displayToast = '';
+        }
+
     }
-    
-}]) 
+])

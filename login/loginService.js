@@ -6,7 +6,7 @@ app.service('loginService', ['$http', '$httpParamSerializerJQLike', 'authorizati
         self.$httpParamSerializerJQLike = $httpParamSerializerJQLike;
 
         // Login User
-        self.login = function(email, password) {
+        self.login = function(email, password, success, fail) {
 
             var data = { 'email': email, 'password': password, 'grant_type': 'Bearer' };
 
@@ -29,6 +29,9 @@ app.service('loginService', ['$http', '$httpParamSerializerJQLike', 'authorizati
                     // failed
                     console.log(response);
 
+                    if (fail) {
+                        fail();
+                    }
                 });
         }
 

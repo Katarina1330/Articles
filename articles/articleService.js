@@ -28,7 +28,7 @@ app.service('articleService', ['$http', 'authorizationService', '$window',
         }
 
         // Create New Comment
-        self.createComment = function(comment) {
+        self.createComment = function(comment, success, fail) {
             var createCommentPath = "http://www.scripttic.com:8000/api/v1/article/" + comment.article + "/comment";
             var token = authorizationService.getToken();
             $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
@@ -36,12 +36,16 @@ app.service('articleService', ['$http', 'authorizationService', '$window',
 
             }, function(error) {
                 console.log(error);
-                alert("Service is not available.");
+                // alert("Service is not available.");
+
+                if (fail) {
+                    fail();
+                }
             })
         }
 
         // Update Article
-        self.editArticle = function(article) {
+        self.editArticle = function(article, success, fail) {
             var editArticlePath = "http://www.scripttic.com:8000/api/v1/article";
             var token = authorizationService.getToken();
             $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
@@ -49,7 +53,10 @@ app.service('articleService', ['$http', 'authorizationService', '$window',
                 return response.data.id;
             }, function(error) {
                 console.log(error);
-                alert("Service is not available.");
+                // alert("Service is not available.");
+                if (fail) {
+                    fail();
+                }
             })
         }
 
@@ -81,7 +88,7 @@ app.service('articleService', ['$http', 'authorizationService', '$window',
         }
 
         // Create New Article
-        self.addArticle = function(article) {
+        self.addArticle = function(article, success, fail) {
 
             var addArticlePath = "http://www.scripttic.com:8000/api/v1/article";
             var token = authorizationService.getToken();
@@ -91,7 +98,11 @@ app.service('articleService', ['$http', 'authorizationService', '$window',
                 //window.history.back();
             }, function(error) {
                 console.log(error);
-                alert("Service is not available.");
+                // alert("Service is not available.");
+
+                if (fail) {
+                    fail();
+                }
             })
         }
 

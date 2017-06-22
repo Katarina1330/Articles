@@ -46,7 +46,10 @@ app.controller('articleController', ['$scope', 'articleService', 'authorizationS
             article.newComment = "";
             article.newCommentTitle = "";
 
-            $scope.articleService.createComment(comment);
+            $scope.articleService.createComment(comment, null, function() {
+                $scope.displayToast = $scope.displayToast === 'open' ? '' : 'open';
+                $timeout(cancelTimeout, 7000);
+            });
         }
 
         $scope.editArticle = function(article) {
@@ -59,7 +62,10 @@ app.controller('articleController', ['$scope', 'articleService', 'authorizationS
                 datetime: new Date()
             }
 
-            $scope.articleService.editArticle(article);
+            $scope.articleService.editArticle(article, null, function() {
+                $scope.displayToast = $scope.displayToast === 'open' ? '' : 'open';
+                $timeout(cancelTimeout, 7000);
+            });
         }
 
         $scope.openDeleteDialog = function(article) {
@@ -82,17 +88,8 @@ app.controller('articleController', ['$scope', 'articleService', 'authorizationS
                     $timeout(cancelTimeout, 7000);
                 });
             }
-
             $scope.displayDeleteDialog = false;
             $scope.selectedArticle = null;
-        }
-
-        var cancelTimeout = function() {
-            $scope.displayToast = '';
-        }
-
-        $scope.cancelToast = function() {
-            $scope.displayToast = '';
         }
 
         $scope.addArticle = function(newArticleTitle, newArticle) {
@@ -103,25 +100,22 @@ app.controller('articleController', ['$scope', 'articleService', 'authorizationS
                 title: newArticleTitle,
                 datetime: new Date
             }
-            $scope.articleService.addArticle(article);
+            $scope.articleService.addArticle(article, null, function() {
+                $scope.displayToast = $scope.displayToast === 'open' ? '' : 'open';
+                $timeout(cancelTimeout, 7000);
+            });
         }
 
         $scope.logout = function() {
             authorizationService.logout();
         }
 
+        var cancelTimeout = function() {
+            $scope.displayToast = '';
+        }
 
-        $scope.errorMessage = function() {
-            $scope.displayToast = true;
-            $timeout(cancelTimeout, 5000);
-
-            $scope.cancelDialog = function() {
-                $scope.displayToast = false;
-            }
-
-            $scope.cancelDialog = function() {
-                $scope.displayToast = false;
-            }
+        $scope.cancelToast = function() {
+            $scope.displayToast = '';
         }
 
 
