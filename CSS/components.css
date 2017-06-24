@@ -206,6 +206,10 @@ form div.ng-active {
     color: rgba(0, 0, 0, 0.58);
 }
 
+.color-red {
+    color: red;
+}
+
 
 /*Animation*/
 
@@ -331,7 +335,7 @@ a.cancel:hover {
 
 .expand-slide-toast {
     opacity: 0;
-    transition: all 2s;
+    transition: all .75s;
 }
 
 .expand-slide-toast.open {

@@ -15,9 +15,9 @@ app.controller('loginController', ['$scope', 'loginService', '$timeout',
             $scope.displayToast = '';
         }
 
-        $scope.cancelToast = function() {
-            $scope.displayToast = '';
-        }
+        // $scope.cancelToast = function() {
+        //     $scope.displayToast = '';
+        // }
 
 
     }

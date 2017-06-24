@@ -114,9 +114,9 @@ app.controller('articleController', ['$scope', 'articleService', 'authorizationS
             $scope.displayToast = '';
         }
 
-        $scope.cancelToast = function() {
-            $scope.displayToast = '';
-        }
+        // $scope.cancelToast = function() {
+        //     $scope.displayToast = '';
+        // }
 
 
     }

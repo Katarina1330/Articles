@@ -22,9 +22,9 @@ app.controller('registrationController', ['$scope', 'registrationService', '$tim
             $scope.displayToast = '';
         }
 
-        $scope.cancelToast = function() {
-            $scope.displayToast = '';
-        }
+        // $scope.cancelToast = function() {
+        //     $scope.displayToast = '';
+        // }
 
     }
 ])
