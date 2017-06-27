@@ -108,9 +108,11 @@
                             <!--ng-show="article.showComments"-->
                             <div class="expand-slide margin-lr-3x" ng-class="article.animateShowComments">
                                 <div class="comments">
-                                    <ul class="list-unstyled">
-                                        <li class="padding-lr-2x padding-tb border-b" ng-repeat="comment in article.comments">
-                                            <b> {{comment.title}} </b> - {{comment.body}}
+                                    <ul class="list-unstyled" ng-repeat="comment in article.comments">
+                                        <li class="padding-lr-3x {{$even ? 'cold': 'background-white'}}">
+                                            <div>
+                                                <b> {{comment.title}} </b> - {{comment.body}}
+                                            </div>
                                         </li>
                                     </ul>
                                 </div>

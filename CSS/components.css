@@ -105,10 +105,10 @@
 }
 
 .post .footer .comments {
-    height: 100px;
+    height: 150px;
     width: 100%;
     overflow-y: scroll;
-    background-color: hsla(36, 100%, 80%, 1) !important;
+    background-color: #e4f0fc !important;
     border-radius: 4px;
 }
 
@@ -208,6 +208,10 @@ form div.ng-active {
 
 .color-red {
     color: red;
+}
+
+.background-white {
+    background-color: white
 }
 
 
