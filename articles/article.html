@@ -1,7 +1,7 @@
 <!--Toast-->
 <div class="expand-slide-toast" ng-class="displayToast">
     <div class="toast margin-3x ">
-        <div class="padding-2x ">
+        <div class="padding-tb-2x">
             <span class="color-red padding-lr"> ERROR </span> Service is not available!
             <!--<a class="text-style-toast nounderline cancel" href="" ng-click="cancelToast()"> CANCEL </a>-->
         </div>
@@ -38,9 +38,8 @@
                 <a class="margin-lr-3x color-orange" href="#/registration" ng-if="!authorizationService.isAuthorized"> <span class="glyphicon glyphicon-user"></span> Registration
                 </a>
             </li>
-            <!--ng-if="authorizationService.isAuthorized"-->
             <li>
-                <a class="margin-lr-3x color-orange" href="#/addArticle">
+                <a class="margin-lr-3x color-orange" href="#/addArticle" ng-if="authorizationService.isAuthorized">
                     Add Article
                 </a>
             </li>
@@ -83,7 +82,7 @@
                         </div>
                         <div class="body margin-3x no-margin-b" ng-show="article.editArticle">
                             <div class="padding-3x">
-                                <textarea class="border-radius" rows="14" cols="47" ng-model="article.body"></textarea>
+                                <textarea class="border-radius" rows="8" cols="47" ng-model="article.body"></textarea>
                             </div>
                         </div>
                     </div>
@@ -120,23 +119,18 @@
                             </div>
 
                             <div class="center-line padding-tb-3x no-padding-b">
-                                <!--<div class="" ng-if="authorizationService.isAuthorized">-->
-                                <input type="button" value="Leave comment" ng-disabled="article.editArticle ||  article.showComments || article.leaveComment" class="btn btn-warning" ng-click="toggleLeaveComment(article)">
-                                <!--</div>-->
+                                <input type="button" value="Leave comment" ng-if="authorizationService.isAuthorized" ng-disabled="article.editArticle ||  article.showComments || article.leaveComment" class="btn btn-warning" ng-click="toggleLeaveComment(article)">
 
                                 <input type="button" value="Show comments" ng-disabled="article.editArticle || article.leaveComment || article.showComments" ng-click="taggleShowComments(article); getComments(article, comments)" class="btn btn-warning">
                             </div>
 
                             <div class="padding-3x center-line">
-                                <!--<div ng-if="authorizationService.isAuthorized">-->
-                                <input type="button" value="Edit Article" ng-disabled="article.leaveComment ||  article.showComments" ng-hide="article.editArticle" ng-click="toggleEditArticle(article)" class="btn btn-warning">
+                                <input type="button" value="Edit Article" ng-if="authorizationService.isAuthorized" ng-disabled="article.leaveComment ||  article.showComments" ng-hide="article.editArticle" ng-click="toggleEditArticle(article)" class="btn btn-warning">
                                 <input type="button" value="Save" class="btn btn-info" ng-show="article.editArticle" ng-click="toggleEditArticle(article); editArticle(article)">
                                 <input type="button" value="Cancel" class="btn btn-default" ng-show="article.editArticle" ng-click="toggleEditArticle(article)">
-                                <!--</div>-->
 
-                                <!--<div ng-if="authorizationService.isAuthorized">-->
                                 <!--ng-click="deleteArticle(article)"-->
-                                <input type="button" value="Delete Article" ng-disabled="article.editArticle || article.leaveComment ||  article.showComments" ng-click="openDeleteDialog(article)" class="btn btn-warning">
+                                <input type="button" value="Delete Article" ng-if="authorizationService.isAuthorized" ng-disabled="article.editArticle || article.leaveComment ||  article.showComments" ng-click="openDeleteDialog(article)" class="btn btn-warning">
                                 <!--</div>-->
                             </div>
                         </form>

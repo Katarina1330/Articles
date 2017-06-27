@@ -6,8 +6,8 @@ app.service('articleService', ['$http', 'authorizationService', '$window',
 
         // Read all Articles
         self.getArticles = function() {
-            // var getArticlePath = "http://www.scripttic.com:8000/api/v1/article";
-            var getArticlePath = "articleData/getArticles.json"
+            var getArticlePath = "http://www.scripttic.com:8000/api/v1/article";
+            //var getArticlePath = "articleData/getArticles.json"
             return $http.get(getArticlePath).then(function(response) {
                 // self.articles = response.data;
                 return response.data;
@@ -18,8 +18,8 @@ app.service('articleService', ['$http', 'authorizationService', '$window',
 
         // Read all Comments
         self.getComments = function(article) {
-            var getCommentsPath = "articleData/comments_" + article.id + ".json";
-            // var getCommentsPath = "http://www.scripttic.com:8000/api/v1/article/" + article.id + "/comment";
+            //var getCommentsPath = "articleData/comments_" + article.id + ".json";
+            var getCommentsPath = "http://www.scripttic.com:8000/api/v1/article/" + article.id + "/comment";
             $http.get(getCommentsPath).then(function(response) {
                 article.comments = response.data;
             }, function(error) {
@@ -37,7 +37,6 @@ app.service('articleService', ['$http', 'authorizationService', '$window',
             }, function(error) {
                 console.log(error);
                 // alert("Service is not available.");
-
                 if (fail) {
                     fail();
                 }
@@ -99,7 +98,6 @@ app.service('articleService', ['$http', 'authorizationService', '$window',
             }, function(error) {
                 console.log(error);
                 // alert("Service is not available.");
-
                 if (fail) {
                     fail();
                 }

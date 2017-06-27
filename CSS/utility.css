@@ -46,6 +46,10 @@
     padding-right: 24px;
 }
 
+.padding-r {
+    padding-right: 8px;
+}
+
 .no-padding {
     padding: 0px !important;
 }
