@@ -54,6 +54,18 @@
     </div>
 </nav>
 
+<!--Loading-->
+
+<div class="cssload-preloader" ng-if="!loading">
+    <span>L</span>
+    <span>o</span>
+    <span>a</span>
+    <span>d</span>
+    <span>i</span>
+    <span>n</span>
+    <span>g</span>
+
+</div>
 
 <div class="container container-table">
     <div class="row vertical-center-row">
@@ -64,27 +76,31 @@
 
                     <div class="article">
                         <div class="header margin-3x">
-                            <div class="title padding-3x" ng-hide="article.editArticle">
-                                <span>{{article.title}}</span>
+                            <div class="title padding-3x">
+                                <span ng-if="!article.editArticle">{{article.title}}</span>
+                                <input class="border-radius color-black expand-slide-editTitle" ng-class="article.animateEditTitle" type="text" ng-model="article.title">
                             </div>
-                            <div class="title padding-3x" ng-show="article.editArticle">
+                            <!--<div class="title padding-3x" ng-show="article.editArticle">
                                 <input class="border-radius color-black" type="text" ng-model="article.title">
-                            </div>
+                            </div>-->
                             <!--<div class="subheader padding-lr-3x">
                                 {{article.subheader}}
                             </div>-->
                         </div>
 
-                        <div class="body margin-3x no-margin-b" ng-hide="article.editArticle">
+                        <div class="body margin-3x no-margin-b">
                             <div class="padding-3x">
-                                <span>{{article.body}}</span>
+                                <span ng-hide="article.editArticle">{{article.body}}</span>
+                                <textarea class="border-radius expand-slide-editArticle" ng-class="article.animateEditArticle" ng-model="article.body"></textarea>
                             </div>
                         </div>
-                        <div class="body margin-3x no-margin-b" ng-show="article.editArticle">
+
+                        <!--rows="8" cols="47"-->
+                        <!--<div class="body no-margin-b expand-slide-editArticle" ng-class="article.animateEditArticle">
                             <div class="padding-3x">
                                 <textarea class="border-radius" rows="8" cols="47" ng-model="article.body"></textarea>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
 
                     <div class="footer margin-tb-3x no-margin-b">
@@ -109,7 +125,7 @@
                             <div class="expand-slide margin-lr-3x" ng-class="article.animateShowComments">
                                 <div class="comments">
                                     <ul class="list-unstyled" ng-repeat="comment in article.comments">
-                                        <li class="padding-lr-3x {{$even ? 'cold': 'background-white'}}">
+                                        <li class="padding {{$even ? 'background-grey': 'background-orange'}}">
                                             <div>
                                                 <b> {{comment.title}} </b> - {{comment.body}}
                                             </div>

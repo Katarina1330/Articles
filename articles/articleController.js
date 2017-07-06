@@ -8,6 +8,7 @@ app.controller('articleController', ['$scope', 'articleService', 'authorizationS
 
         $scope.toggleEditArticle = function(article) {
             article.animateEditArticle = article.animateEditArticle === 'open' ? '' : 'open';
+            article.animateEditTitle = article.animateEditTitle === 'open' ? '' : 'open';
             article.editArticle = !article.editArticle;
         }
 
@@ -22,10 +23,13 @@ app.controller('articleController', ['$scope', 'articleService', 'authorizationS
         }
 
         // $scope.articleService.getArticles();
-
+        $scope.loading = null;
         $scope.articles = {};
         articleService.getArticles().then(function(data) {
-            $scope.articles = data;
+            if (data != null) {
+                $scope.loading = true;
+                $scope.articles = data;
+            }
         })
 
         $scope.getComments = function(article, comments) {
