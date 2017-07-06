@@ -41,13 +41,6 @@
 /* post component */
 
 .post {
-    /*margin: 30px;
-    padding: 1px 0px 1px 0px;
-    -webkit-box-shadow: 8px 8px 31px 9px rgba(120, 120, 120, 1);
-    -moz-box-shadow: 8px 8px 31px 9px rgba(120, 120, 120, 1);
-    box-shadow: 8px 8px 31px 9px rgba(120, 120, 120, 1);
-    width: 650px;
-    min-height: 350px;*/
     margin: 100px;
     padding: 1px 0px 1px 0px;
     width: 450px;
@@ -88,12 +81,6 @@
     text-justify: inter-word;
     border-radius: 4px;
 }
-
-
-/*.post .article .textarea {
-    width: 100% !important;
-    min-height: 110px !important;
-}*/
 
 .post .footer {
     font-family: arial;
@@ -235,7 +222,6 @@ form div.ng-active {
 }
 
 .expand-slide.open {
-    /*height: 150px;*/
     max-height: 350px;
 }
 
@@ -253,25 +239,15 @@ form div.ng-active {
     width: 0;
     opacity: 0;
     transition: opacity .75s;
-    /*visibility: hidden;
-    overflow: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.5s linear;*/
 }
 
 .expand-slide-editArticle.open {
-    /*visibility: visible;
-    overflow: visible;*/
     opacity: 1;
     height: 120px;
     width: 100%;
-    /*margin-top: 24px;
-    margin-left: 24px;*/
 }
 
 .expand-slide-editTitle {
-    /*height: 0;
-    width: 0;*/
     opacity: 0;
     transition: opacity .75s;
 }
